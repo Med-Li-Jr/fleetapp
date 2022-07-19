@@ -1,0 +1,20 @@
+<div class="form-group mt-1 clearfix">
+    <a *ngIf="canDelete" class="btn btn-outline-danger float-end ms-3" (click)="onDelete()" >Delete</a>
+    <a *ngIf="!canDelete" class="btn btn-dark float-end ms-3"
+    data-bs-toggle="tooltip"
+    data-bs-offset="0,4"
+    data-bs-placement="top"
+    data-bs-html="true"
+    title="<i class='bx bx-bell bx-xs' ></i> <span>Not allowed</span>"
+    >Delete</a>
+
+    <a *ngIf="canUpdate" class="btn btn-primary float-end" routerLink="/{{moduleName}}/{{itemId}}/update" >Edit</a>
+    <a *ngIf="!canUpdate" class="btn btn-dark float-end"
+    data-bs-toggle="tooltip"
+    data-bs-offset="0,4"
+    data-bs-placement="top"
+    data-bs-html="true"
+    title="<i class='bx bx-bell bx-xs' ></i> <span>Not allowed</span>"
+    >Edit</a>
+    
+</div>

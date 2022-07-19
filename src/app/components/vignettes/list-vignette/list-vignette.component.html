@@ -1,0 +1,53 @@
+
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Vehicle</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                    <th>Due Date</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <ng-template [ngIf]="vignettes.length == 0">
+                    <tr>
+                        <td colspan="5">There is not a vignette </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template [ngIf]="vignettes.length > 0">
+                    <tr *ngFor="let vignette of vignettes">
+
+                        <td>
+                            <a routerLink="/vehicles/{{vignette.vehicleId}}">
+
+                                <strong>{{vignette.vehicleMarque }}</strong>
+
+                            </a>
+                        </td>
+
+                        <td>{{vignette.type }}</td>
+                        <td>{{vignette.price }}</td>
+                        <td>{{vignette.dueDate }}</td>
+                        <td class="text-center">
+                            <app-btnstable moduleName="vignettes" itemId="{{vignette.id}}"></app-btnstable>
+                        </td>
+                    </tr>
+                </ng-template>
+            </tbody>
+            <tfoot class="table-border-bottom-0">
+                <tr>
+                    <th>Vehicle</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                    <th>Due Date</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

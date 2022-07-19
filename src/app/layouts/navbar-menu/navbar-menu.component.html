@@ -1,0 +1,17 @@
+<ul class="menu-inner py-1">
+    
+
+    <li *ngFor="let menu of allMenu;" 
+        id="{{menu}}" class="menu-item" routerLinkActive="active">
+        <a class="menu-link" routerLink="/{{menu.toLowerCase()}}">
+            <div data-i18n="Analytics" *ngIf="menu.trim().toLowerCase() == 'tracers'">Map</div>
+            <div data-i18n="Analytics" *ngIf="menu.trim().toLowerCase() !== 'tracers'">{{menu}}</div>
+            </a>
+    </li>
+    <li *ngIf="isCurrentUserAdmin" 
+        id="users" class="menu-item" routerLinkActive="active">
+        <a class="menu-link" routerLink="/users">
+            <!-- <i class="menu-icon tf-icons bx bx-user-circle"></i> -->
+            Users</a>
+    </li>
+</ul>

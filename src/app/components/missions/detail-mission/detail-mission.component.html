@@ -1,0 +1,139 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin="" />
+
+<div class="row">
+    <div class="mb-3">
+
+        <h5 class="">Mission Informations</h5>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-control">
+                    <div class="row">
+                        <div class="col-md-4 mb-2">
+
+                            <div class="form-group">
+                                <label for="driverFullname" class="form-label">Driver</label>
+                                <input name="driverFullname" readonly
+                                    [(ngModel)]="currentMission.driverFullname" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-2">
+        
+                            <div class="form-group">
+                                <label for="vehicleMarque" class="form-label">Vehicle</label>
+                                <input name="vehicleMarque" readonly [(ngModel)]="currentMission.vehicleMarque"
+                                    class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-2">
+        
+                            <div class="form-group">
+                                <label for="employeeFullname" class="form-label">Employee</label>
+                                <input name="employeeFullname" readonly [(ngModel)]="currentMission.employeeFullname"
+                                    class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+        
+                            <div class="form-group">
+                                <label for="dateStart" class="form-label">Date Start</label>
+                                <input name="dateStart" readonly [(ngModel)]="currentMission.dateStart"
+                                    class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+        
+                            <div class="form-group">
+                                <label for="dateEnd" class="form-label">Date End</label>
+                                <input name="dateEnd" readonly [(ngModel)]="currentMission.dateEnd"
+                                    class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+        
+                            <div class="form-group">
+                                <label for="sourceLocation" class="form-label">Source</label>
+                                <input name="sourceLocation" readonly [(ngModel)]="currentMission.sourceLocation"
+                                    class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+        
+                            <div class="form-group">
+                                <label for="destinationLocation" class="form-label">Destination</label>
+                                <input name="destinationLocation" readonly [(ngModel)]="currentMission.destinationLocation"
+                                    class="form-control" />
+                            </div>
+                        </div>
+        
+                        <div class="col-md-6">
+        
+                            <div class="form-group">
+                                <p for="status" class="">Status : 
+                                    <br>
+                                    <span *ngIf="currentMission.status.toLowerCase() == 'finished'" class="mt-2 badge bg-success">{{currentMission.status}}</span>
+                                    <span *ngIf="currentMission.status.toLowerCase() == 'waiting'" class="mt-2 badge bg-warning">{{currentMission.status}}</span>
+                                    <span *ngIf="currentMission.status.toLowerCase() == 'started'" class="mt-2 badge bg-primary">{{currentMission.status}}</span>
+        
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group mt-1 clearfix" *ngIf="currentMission.status.toLowerCase() !== 'waiting'" >
+                            <a class="btn btn-dark float-end ms-3"
+                            data-bs-toggle="tooltip"
+                            data-bs-offset="0,4"
+                            data-bs-placement="top"
+                            data-bs-html="true"
+                            title="<i class='bx bx-bell bx-xs' ></i> <span>Mission has {{currentMission.status}}, you can't delete it</span>"
+                            >Delete</a>
+                        
+                            <a class="btn btn-dark float-end"
+                            data-bs-toggle="tooltip"
+                            data-bs-offset="0,4"
+                            data-bs-placement="top"
+                            data-bs-html="true"
+                            title="<i class='bx bx-bell bx-xs' ></i> <span>Mission has {{currentMission.status}}, you can't edit it</span>"
+                            >Edit</a>
+                            
+                        </div>
+                        <app-btnsdetail *ngIf="currentMission.status.toLowerCase() == 'waiting'"  moduleName="missions" [itemId]="currentMission.id.toString()" (btnDeleteClicked)="onDelete()"></app-btnsdetail>
+        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div id='mapDetailMission'></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="form-group d-block">
+    <div class="row">
+
+        <div class="col-md-6 col-lg-4 mb-3">
+            <h5 class="">Driver</h5>
+            <div class="form-control">
+                <app-card-user [currentUser]="currentMission.driver" [moduleName]="'drivers'"></app-card-user>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-3">
+            <h5 class="">Vehicle</h5>
+            <div class="form-control">
+                <app-card-vehicle [currentVehicle]="currentMission.vehicle" [moduleName]="'vehicles'">
+                </app-card-vehicle>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-3">
+            <h5 class="">Employee</h5>
+            <div class="form-control">
+                <app-card-user [currentUser]="currentMission.employee" [moduleName]="'employees'"></app-card-user>
+            </div>
+        </div>
+
+    </div>
+</div>

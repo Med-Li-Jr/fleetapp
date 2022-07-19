@@ -1,0 +1,98 @@
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <div class="d-flex justify-content-center align-self-center">
+
+            <ng-template [ngIf]="(currentVehicle.imageUrl.length > 0)">
+                <img src="{{currentVehicle.imageUrl}}" class="myImgVehicleDetail">
+            </ng-template>
+
+            <ng-template [ngIf]="(currentVehicle.imageUrl.length == 0)">
+                <img src="" class="myImgVehicleDetail">
+            </ng-template>
+
+        </div>
+    </div>
+
+    <div class="col-md-8 mb-3">
+
+        <h5 class="">Vehicle Informations</h5>
+        <div class="form-control mb-3">
+            <div class="row">
+
+                <div class="form-group mb-3 col-md-4">
+                    <label name="groupeName" class="form-label">Groupe : </label>
+                    <input name="groupeName" required  [(ngModel)]="currentVehicle.groupeName" class="form-control" readonly />
+                </div>
+                <div class="form-group mb-3 col-md-4">
+                    <label name="marque" class="form-label">Marque : </label>
+                    <input name="marque" required  [(ngModel)]="currentVehicle.marque" class="form-control" readonly />
+                </div>
+                <div class="form-group mb-3 col-md-4">
+                    <label name="seatNbr" class="form-label">Seat Nbr : </label>
+                    <input name="seatNbr" required  [(ngModel)]="currentVehicle.seatNbr" class="form-control" readonly />
+                </div>
+                <div class="form-group mb-3 col-md-4">
+                    <label name="datePurchase" class="form-label">Date Purchase : </label>
+                    <input name="datePurchase" required  [(ngModel)]="currentVehicle.datePurchase" type="date"
+                        class="form-control" readonly />
+                </div>
+                <div class="form-group mb-3 col-md-4">
+                    <label name="dateStartUsage" class="form-label">Date Start Usage : </label>
+                    <input name="dateStartUsage" required  [(ngModel)]="currentVehicle.dateStartUsage" type="date"
+                        class="form-control" readonly />
+                </div>
+                <div class="form-group mb-3 col-md-4">
+                    <label name="dateLimiteUsage" class="form-label">Date Limit Usage : </label>
+                    <input name="dateLimiteUsage" required  [(ngModel)]="currentVehicle.dateLimiteUsage" type="date"
+                        class="form-control" readonly />
+                </div>
+            </div>
+            <app-btnsdetail moduleName="vehicles" [itemId]="currentVehicle.id.toString()" (btnDeleteClicked)="onDelete()"></app-btnsdetail>
+        </div>
+    </div>
+    <div class="col-md-12 mb-3">
+
+        <div class="nav-align-top mb-4">
+            <ul class="nav nav-tabs nav-fill" role="tablist">
+                <li class="nav-item">
+                    <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
+                        data-bs-target="#navs-insurances" aria-controls="navs-insurances" aria-selected="true">
+                        Insurances
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                        data-bs-target="#navs-vignettes" aria-controls="navs-vignettes" aria-selected="false">
+                        Vignettes
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                        data-bs-target="#navs-voucherfuels" aria-controls="navs-voucherfuels" aria-selected="false">
+                        Vouchers
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content form-control">
+                <div class=" tab-pane fade show active" id="navs-insurances" role="tabpanel">
+                    <h5>Vehicles Insurances</h5>
+                    <app-list-insurance [insurances]="this.currentVehicle.allInsurances"></app-list-insurance>
+                </div>
+
+                <div class=" tab-pane fade" id="navs-vignettes" role="tabpanel">
+                    <h5>Vehicles Vignettes</h5>
+
+                    <app-list-vignette [vignettes]="currentVehicle.allVignettes"></app-list-vignette>
+                    
+                </div>
+
+                <div class=" tab-pane fade" id="navs-voucherfuels" role="tabpanel">
+                    <h5>Vehicles Vouchers</h5>
+                    <app-list-voucher [vouchers]="currentVehicle.allVouchers"></app-list-voucher>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

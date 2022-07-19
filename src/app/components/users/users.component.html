@@ -1,0 +1,78 @@
+<div class="d-grid gap-2 mb-2 d-md-flex justify-content-end">
+    <a class="btn btn-primary" routerLink="/users/add">
+        Add
+    </a>
+</div>
+
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>fullname</th>
+                    <th>email</th>
+                    <th>phone</th>
+                    <th>roleName</th>
+                    <th class="text-center">isSuperAdmin</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <ng-template [ngIf]="users.length == 0">
+                    <tr>
+                        <td colspan="6">There is not an user </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template [ngIf]="users.length > 0">
+                    <tr *ngFor="let user of users">
+
+                        <td>
+                            <a routerLink="{{user.id}}">
+
+                                <img *ngIf="(user.imageUrl.length > 0) ;else image_default"
+                                    src="{{ user.imageUrl}}"
+                                    class="w-px-50 h-px-50 mx-auto me-1 rounded-circle myImgUserTable">
+
+                                <ng-template #image_default>
+                                    <img src="assets/img/avatars/1.png"
+                                        class="w-px-50 h-px-50 mx-auto  me-1 rounded-circle myImgUserTable">
+                                </ng-template>
+
+
+                                <strong>{{user.fullname }}</strong>
+
+                            </a>
+                        </td>
+
+                        <td>{{user.email }}</td>
+                        <td>{{user.phone }}</td>
+                        <td>{{user.roleName}}</td>
+                        <td class="text-center">
+                            <span *ngIf="user.isSuperAdmin;else blocNotSuperAdmin"
+                                class="badge bg-label-success me-1">{{user.isSuperAdmin}}</span>
+                            <ng-template #blocNotSuperAdmin>
+                                <span class="badge bg-label-primary me-1">{{user.isSuperAdmin}}</span>
+                            </ng-template>
+                        </td>
+                        <td class="text-center">
+                            <a routerLink="{{user.id}}"><i class="bx bx-show "></i> </a>
+                            <a routerLink="{{user.id}}/update"><i class="bx bx-edit"></i></a>
+                        </td>
+                    </tr>
+                </ng-template>
+            </tbody>
+            <tfoot class="table-border-bottom-0">
+                <tr>
+                    <th>fullname</th>
+                    <th>email</th>
+                    <th>phone</th>
+                    <th>roleName</th>
+                    <th class="text-center">isSuperAdmin</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

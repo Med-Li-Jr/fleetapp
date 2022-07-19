@@ -1,0 +1,41 @@
+<div class="card h-100 px-2">
+    <div class="d-flex h-px-250 w-px-250 align-self-center justify-content-center">
+        <img *ngIf="isExist == true" class="align-self-center rounded-circle myCardImgUser"
+            src="{{currentUser.imageUrl}}" alt="User Image" />
+            <h4 *ngIf="isExist == false" class="align-self-center">{{this.moduleName.slice(0, -1)}} does not exist</h4>
+    </div>
+    <div class="mb-2">
+        <h5 class="card-title">
+            <a *ngIf="canRead" routerLink="/{{moduleName}}/{{currentUser.id}}" class="text-primary">
+                <strong>{{currentUser.fullname}}</strong>
+            </a>
+            <a *ngIf="canRead == false" class="text-dark">
+                <strong>{{currentUser.fullname}}</strong>
+            </a>
+        </h5>
+        <div class="card-text mb-3">
+            <div class="row mb-1">
+                <div class="form-group mb-1">
+                    <label for="fullname" class="form-label">Fullname</label>
+                    <input name="fullname" required [(ngModel)]="currentUser.fullname" class="form-control"
+                        readonly />
+                </div>
+                <div class="form-group mb-1">
+                    <label for="email" class="form-label">Email</label>
+                    <input name="email" required [(ngModel)]="currentUser.email" class="form-control" readonly />
+                </div>
+                <div class="form-group mb-1">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input name="phone" required [(ngModel)]="currentUser.phone" class="form-control" readonly />
+                </div>
+            </div>
+        </div>
+        <div class="d-flex float-end">
+            <a *ngIf="canRead" class="btn btn-primary" routerLink="/{{moduleName}}/{{currentUser.id}}">See
+                detail</a>
+            <button *ngIf="!canRead" class="btn btn-dark" data-bs-toggle="tooltip" data-bs-offset="0,4"
+                data-bs-placement="top" data-bs-html="true"
+                title="<i class='bx bx-bell bx-xs' ></i> <span>Not allowed</span>">See detail</button>    
+        </div>
+    </div>
+</div>

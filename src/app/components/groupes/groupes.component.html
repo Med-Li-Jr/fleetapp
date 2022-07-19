@@ -1,0 +1,49 @@
+<app-btncreate moduleName="groupevehicles"></app-btncreate>
+
+
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <ng-template [ngIf]="groupes.length == 0">
+                    <tr>
+                        <td colspan="6">There is not a groupe </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template [ngIf]="groupes.length > 0">
+                    <tr *ngFor="let groupe of groupes">
+
+                        <td>
+                            <a routerLink="{{groupe.id}}">
+
+                                <strong>{{groupe.name }}</strong>
+
+                            </a>
+                        </td>
+
+                        <td>{{groupe.description }}</td>
+                        <td class="text-center">
+                            <app-btnstable moduleName="groupevehicles" itemId="{{groupe.id}}"></app-btnstable>
+                        </td>
+                    </tr>
+                </ng-template>
+            </tbody>
+            <tfoot class="table-border-bottom-0">
+                <tr>
+                    <th>name</th>
+                    <th>description</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,138 @@
+<form #f="ngForm" ngNativeValidate (ngSubmit)="onSubmit()" enctype="multipart/form-data" autocomplete="off">
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <h5 class="">Driver Image</h5>
+            <div class="form-control">
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <img id="userImage" [src]="srcImage" class="myImgUserCreate rounded-circle" />
+                    <div class="button-wrapper">
+                        <label for="imageUser" class="btn btn-primary my-1">
+                            <span class="d-none d-sm-block">Upload</span>
+                            <input type="file" (change)="onFileSelected($event)" name="imageUser" id="imageUser"
+                                class="account-file-input" hidden accept="image/png, image/jpeg" />
+                            <input name="imageUrl" class="form-control" hidden />
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8 mb-3">
+
+            <h5 class="">Driver Informations</h5>
+            <div class="form-control mb-3">
+                <div class="row">
+
+                    <div class="form-group mb-3 col-md-4">
+                        <label name="fullname" class="form-label">Fullname : </label>
+                        <input name="fullname" required [(ngModel)]="currentDriver.fullname" class="form-control" />
+                    </div>
+                    <div class="form-group mb-3 col-md-4">
+                        <label name="email" class="form-label">Email : </label>
+                        <input name="email" required [(ngModel)]="currentDriver.email" class="form-control" />
+                    </div>
+                    <div class="form-group mb-3 col-md-4">
+                        <label name="password" class="form-label">Password : </label>
+                        <input name="password" required [(ngModel)]="currentDriver.password" type="password"
+                            class="form-control" />
+                    </div>
+                    <div class="form-group mb-3 col-md-4">
+                        <label name="address" class="form-label">Address : </label>
+                        <input name="address" required [(ngModel)]="currentDriver.address" class="form-control" />
+                    </div>
+                    <div class="form-group mb-3 col-md-4">
+                        <label name="phone" class="form-label">Phone : </label>
+                        <input name="phone" required [(ngModel)]="currentDriver.phone" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group mt-3 clearfix">
+                    <a routerLink="/drivers" class="btn btn-outline-secondary float-end ms-3">Cancel </a>
+                    <button type="submit" class="btn btn-primary float-end">Save changes</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <h5 class="">Driver Role</h5>
+            <div class="form-control">
+                <div class="row">
+
+                    <div class="form-group mb-3">
+                        <label for="roleName" class="form-label">Role Name</label>
+                        <select name="roleName" class="form-select" required [(ngModel)]="currentDriver.roleName" disabled>
+                            <option value="driver" selected>Driver</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Super Admin</label>
+                        <div class="form-group">
+                            <div class="form-check form-check-inline mt-1">
+                                <input type="radio" name="isSuperAdmin"  [checked]="currentDriver.isSuperAdmin == true" disabled value="true" class="form-check-input" />
+                                <label class="form-check-label">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline mt-1">
+                                <input type="radio" name="isSuperAdmin"  [checked]="currentDriver.isSuperAdmin == false" disabled value="false"
+                                    class="form-check-input" />
+                                <label class="form-check-label">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8 mb-3">
+            <h5 class="">Driver Privilege</h5>
+            <div class="form-control">
+                <div class="table-responsive text-nowrap">
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th scope="col"><strong> Module Name </strong></th>
+                                <th scope="col"><strong> Can Create </strong></th>
+                                <th scope="col"><strong> Can Read </strong></th>
+                                <th scope="col"><strong> Can Update </strong></th>
+                                <th scope="col"><strong> Can Delete </strong></th>
+                            </tr>
+
+                        </thead>
+                        <tbody class="table-border-bottom-0 table-dark">
+
+                            <tr *ngFor="let privilege of currentDriver.allPrivileges">
+                                <td>
+                                    {{privilege.moduleName}}
+                                    <input name="moduleName" type="checkbox" [(ngModel)]="privilege.moduleName"
+                                        class="form-check-input" hidden />
+                                </td>
+                                <td class="">
+                                    <div class="form-check d-flex justify-content-center">
+                                        <input name="canCreate" type="checkbox" [(ngModel)]="privilege.canCreate"
+                                            class="form-check-input" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check d-flex justify-content-center">
+                                        <input name="canRead" type="checkbox" [(ngModel)]="privilege.canRead"
+                                            class="form-check-input" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check d-flex justify-content-center">
+                                        <input name="canUpdate" type="checkbox" [(ngModel)]="privilege.canUpdate"
+                                            class="form-check-input" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check d-flex justify-content-center">
+                                        <input name="canDelete" type="checkbox" [(ngModel)]="privilege.canDelete"
+                                            class="form-check-input" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

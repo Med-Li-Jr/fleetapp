@@ -1,0 +1,14 @@
+#map {
+    height: 75vh;
+    width: 100%;
+}
+
+a {
+    cursor: pointer;
+}
+
+.stylePopup
+{
+
+    background-color: #f4913b;
+}

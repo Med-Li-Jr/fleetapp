@@ -1,0 +1,53 @@
+<!-- Modal -->
+<div class="modal" style="display: none; z-index: 9998;" id="spinnerModal" data-bs-backdrop="static" tabindex="99">
+  <div class="modal-dialog modal-dialog-centered">
+      <form class="modal-content">
+          <div class="modal-body">
+
+              <div class="col-md text-center">
+                  <div class="demo-inline-spacing">
+                      <div class="spinner-border spinner-border-lg text-primary"
+                          style="width: 10rem; height: 10rem; border-width: 0.7rem;" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                      </div>
+                  </div>
+                  <div class="text-light small fw-semibold" style="font-size: 2rem;">
+                      Loading...</div>
+              </div>
+          </div>
+      </form>
+  </div>
+</div>
+
+<ng-template [ngIf]="getScreenWidth > 770">
+  <router-outlet></router-outlet>
+</ng-template>
+
+<ng-template [ngIf]="getScreenWidth <= 770">
+  <app-smallscreen></app-smallscreen>
+</ng-template>
+
+
+
+
+
+<select hidden class="form-select placement-dropdown" id="selectPlacement">
+  <option value="top-0 end-0 me-3 mt-3">Bottom right</option>
+</select>
+<select hidden id="selectTypeOpt" class="form-select color-dropdown">
+  <option value="bg-danger">Danger</option>
+</select>
+
+<!-- Toast with Placements -->
+<div class="bs-toast toast toast-placement-ex m-2" role="alert" aria-live="assertive" aria-atomic="true"
+  data-delay="2000">
+  <div class="toast-header">
+      <i class="bx bx-bell me-2"></i>
+      <div class="me-auto fw-semibold">There was an Error</div>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body" id="toast-content">There was an error</div>
+</div>
+
+<button id="showToastPlacement" hidden class="btn btn-primary">Show Toast</button>
+<div id="myOverlay" class="myOverlay"></div>

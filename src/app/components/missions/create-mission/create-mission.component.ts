@@ -1,0 +1,223 @@
+import { Component, OnInit } from '@angular/core';
+import { KEYMAPBOX, MyhelperService } from '../../../services/myhelper.service';
+import * as L from 'leaflet';
+import { MissionCreate } from '../../../modals/mission.modal';
+import { VehicleRead } from '../../../modals/vehicle.modal';
+import { UserRead } from '../../../modals/user.modal';
+import { VehiclesService } from '../../../services/vehicles.service';
+import { UsersService } from '../../../services/users.service';
+import { MissionsService } from '../../../services/missions.service';
+import { MymapService } from '../../../services/mymap.service';
+import { LoginService } from '../../../services/login.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-create-mission',
+  templateUrl: './create-mission.component.html',
+  styleUrls: ['./create-mission.component.css']
+})
+export class CreateMissionComponent implements OnInit {
+
+  currentMission: MissionCreate = {
+    vehicleId: 0,
+    vehicleMarque: "",
+    employeeId: 0,
+    employeeFullname: "",
+    driverId: 0,
+    driverFullname: "",
+    status: "finished",
+    dateEnd: "",
+    dateStart: "",
+    destinationLatitude: 0,
+    destinationLocation: "",
+    destinationLongitude: 0,
+    sourceLatitude: 0,
+    sourceLocation: "",
+    sourceLongitude: 0,
+  }
+
+  allVehicles: VehicleRead[] = []
+  allEmployees: UserRead[] = []
+  allDrivers: UserRead[] = []
+
+  constructor(private helperService: MyhelperService,
+    private loginService: LoginService,
+    private vehicleService: VehiclesService,
+    private employeeService: UsersService,
+    private driverService: UsersService,
+    private missionService: MissionsService, private router: Router,
+    private mymapService: MymapService) { }
+
+  ngOnInit(): void {
+    this.initForm();
+    this.helperService.setLocationMenu("Missions", "Add")
+  }
+
+  initForm() {
+
+    this.currentMission = {
+      vehicleId: 0,
+      vehicleMarque: "",
+      employeeId: 0,
+      employeeFullname: "",
+      driverId: 0,
+      driverFullname: "",
+      status: "waiting",
+      dateEnd: "",
+      dateStart: "",
+      destinationLatitude: 0,
+      destinationLocation: "",
+      destinationLongitude: 0,
+      sourceLatitude: 0,
+      sourceLocation: "",
+      sourceLongitude: 0,
+    }
+    this.configMap();
+    this.helperService.setIsLoading(true);
+
+    this.vehicleService.getAllVehicles()
+      .subscribe(
+        resp => {
+          this.allVehicles = resp;
+          this.employeeService.getAllUsersByRole("employee")
+            .subscribe(
+              resp => {
+                this.allEmployees = resp;
+                this.driverService.getAllUsersByRole("driver")
+                  .subscribe(
+                    resp => {
+                      this.allDrivers = resp;
+                      this.helperService.setIsLoading(false);
+                    },
+                    error => {
+                      
+                      this.helperService.showErrorToast(error)
+                    }
+                  )
+              },
+              error => {
+
+                this.helperService.showErrorToast(error)
+              }
+            )
+        },
+        error => {
+          
+          this.helperService.showErrorToast(error)
+        });
+  }
+
+  onChangeVehicle($event: any) {
+    if ($event.target.value.split(",").length > 1) {
+      this.currentMission.vehicleId = Number.parseInt($event.target.value.split(",")[0]);
+      this.currentMission.vehicleMarque = $event.target.value;
+    }
+    else {
+      this.currentMission.vehicleId = 0;
+      this.currentMission.vehicleMarque = "";
+    }
+  }
+
+  onChangeDriver($event: any) {
+    if ($event.target.value.split(",").length > 1) {
+      this.currentMission.driverId = Number.parseInt($event.target.value.split(",")[0]);
+      this.currentMission.driverFullname = $event.target.value;
+    }
+    else {
+      this.currentMission.driverId = 0;
+      this.currentMission.driverFullname = "";
+    }
+
+  }
+
+
+  onSubmit() {
+
+    this.currentMission.employeeFullname = this.loginService.currentUser.id + "," + this.loginService.currentUser.fullname;
+
+    this.helperService.setIsLoading(true);
+    this.missionService.addMission(this.currentMission)
+      .subscribe(
+        resp => {
+          
+          if(resp.includes("success") == false) {
+            this.helperService.showErrorToast(resp)
+            
+          }
+          else
+            this.router.navigate(['missions']);
+        },
+        error => {
+          
+          this.helperService.showErrorToast(error)
+        }
+      );
+  }
+
+  public configMap() {
+    try {
+      const mainThis = this;
+      // let sourceLatlng = L.latLng(this.currentMission.sourceLatitude, this.currentMission.sourceLongitude);
+      // let destinationLatlng = L.latLng(this.currentMission.destinationLatitude, this.currentMission.destinationLongitude);
+
+      let center = L.latLng(33.886917, 9.537499)
+      // const map = L.map('map').setView(center, 7);;
+      const mapLocDest = L.map('mapLocDest').setView(center, 6);
+      const mapLocSrc = L.map('mapLocSrc').setView(center, 6);
+
+      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=' + KEYMAPBOX, {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/streets-v11',
+        accessToken: KEYMAPBOX
+      }).addTo(mapLocSrc);
+
+      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=' + KEYMAPBOX, {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/streets-v11',
+        accessToken: KEYMAPBOX
+      }).addTo(mapLocDest);
+
+
+      let srcMarker = L.marker(center, {icon: mainThis.helperService.getMarkerIcon("blue")}).addTo(mapLocSrc)
+      let destMarker = L.marker(center, {icon: mainThis.helperService.getMarkerIcon("blue")}).addTo(mapLocDest)
+
+
+
+      mapLocSrc.on('click', function (ev: any) {
+        mainThis.currentMission.sourceLatitude = ev.latlng.lat;
+        mainThis.currentMission.sourceLongitude = ev.latlng.lng;
+        mainThis.mymapService.
+          getNameFromLatLng(ev.latlng.lat, ev.latlng.lng)
+          .subscribe(
+            resp => {
+              mainThis.currentMission.sourceLocation = resp[0].name + ", " + resp[0].state
+            }
+          )
+
+        mapLocSrc.removeLayer(srcMarker)
+        srcMarker = L.marker(ev.latlng,{icon: mainThis.helperService.getMarkerIcon("blue")}).addTo(mapLocSrc)
+          .bindPopup('Marker Source.', { closeButton: false })
+      });
+
+      mapLocDest.on('click', function (ev: any) {
+        mainThis.currentMission.destinationLatitude = ev.latlng.lat;
+        mainThis.currentMission.destinationLongitude = ev.latlng.lng;
+        mainThis.mymapService.
+          getNameFromLatLng(ev.latlng.lat, ev.latlng.lng)
+          .subscribe(
+            resp => {
+              mainThis.currentMission.destinationLocation = resp[0].name + ", " + resp[0].state
+            }
+          )
+
+        mapLocDest.removeLayer(destMarker)
+        destMarker = L.marker(ev.latlng,{icon: mainThis.helperService.getMarkerIcon("blue")}).addTo(mapLocDest)
+          .bindPopup('Marker Destination.', { closeButton: false })
+      });
+    }
+    catch (e) {
+      console.log(e)
+    }
+
+  }
+}

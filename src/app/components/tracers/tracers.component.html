@@ -1,0 +1,147 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin="" />
+<div class="d-grid gap-2 mb-2 d-md-flex justify-content-end">
+
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEnd"
+        aria-controls="offcanvasEnd">
+        Missions
+    </button>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="table-responsive text-nowrap">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Vehicle</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <ng-template [ngIf]="allTracers.length == 0">
+                            <tr>
+                                <td colspan="1">There is not a tracer </td>
+                            </tr>
+                        </ng-template>
+
+                        <ng-template [ngIf]="allTracers.length > 0">
+                            <tr *ngFor="let tracer of allTracers">
+
+                                <td>
+                                    <!-- <a routerLink="/vehicles/{{tracer.vehicleId}}"> -->
+                                    <a class="click" (click)="showVehicleDirection(tracer.id)">
+
+                                        <strong>{{tracer.vehicleMarque }}</strong>
+
+                                    </a>
+                                    <div id="contentPopup{{tracer.id}}" hidden> Vehicle : {{tracer.vehicleMarque}} <br>
+                                        Location : {{tracer.location}} <br> Speed : {{tracer.currentSpeed}}</div>
+
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </tbody>
+                    <tfoot class="table-border-bottom-0">
+                        <tr>
+                            <th>Vehicle</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div id='map'></div>
+    </div>
+
+    <!-- End Offcanvas -->
+    <div class="col-md-12">
+        <div class="mt-3">
+            <div class="offcanvas offcanvas-end col-md-7" style="width: auto !important;" tabindex="-1"
+                id="offcanvasEnd" aria-labelledby="offcanvasEndLabel">
+                <div class="offcanvas-header">
+                    <h5 id="offcanvasEndLabel" class="offcanvas-title">List Missions (<small>this is for demo only. it is for emulate the mobile app</small>)</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+
+                    <div class="card">
+                        <div class="table-responsive text-nowrap">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Vehicle</th>
+                                        <th>Driver</th>
+                                        <th>Source</th>
+                                        <th>Destination</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <ng-template [ngIf]="allMissions.length == 0">
+                                        <tr>
+                                            <td colspan="5">There is not a mission </td>
+                                        </tr>
+                                    </ng-template>
+
+                                    <ng-template [ngIf]="allMissions.length > 0">
+                                        <tr *ngFor="let mission of allMissions">
+
+                                            <td>
+                                                <a routerLink="/vehicles/{{mission.vehicleId}}">
+
+                                                    <strong>{{mission.vehicleMarque }}</strong>
+
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a routerLink="/drivers/{{mission.driverId}}">
+
+                                                    <strong>{{mission.driverFullname }}</strong>
+
+                                                </a>
+                                            </td>
+
+                                            <td>{{mission.sourceLocation }}</td>
+                                            <td>{{mission.destinationLocation }}</td>
+                                            <td class="text-center">
+                                                <ng-template [ngIf]="(mission.status.toLowerCase() == 'waiting')">
+                                                    <button type="button" (click)="onStartClicked(mission.id)"
+                                                        class="btn btn-primary" data-bs-dismiss="offcanvas">
+                                                        Start
+                                                    </button>
+
+                                                </ng-template>
+
+                                                <ng-template [ngIf]="(mission.status.toLowerCase() == 'started')">
+                                                    <button type="button" (click)="onStopClicked(mission.id)"
+                                                        class="btn btn-danger" data-bs-dismiss="offcanvas">
+                                                        Stop
+                                                    </button>
+
+                                                </ng-template>
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                </tbody>
+                                <tfoot class="table-border-bottom-0">
+                                    <tr>
+                                        <th>Vehicle</th>
+                                        <th>Driver</th>
+                                        <th>Source</th>
+                                        <th>Destination</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

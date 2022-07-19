@@ -1,0 +1,43 @@
+<div class="card h-100 px-2">
+    <div class="d-flex h-px-250 align-self-center justify-content-center">
+        <img *ngIf="isExist == true" class="w-100 pb-3 pt-2 align-self-center myCardImgVehicle"
+            src="{{currentVehicle.imageUrl}}" alt="Vehicle Image" />
+            <h4 *ngIf="isExist == false" class="align-self-center">{{this.moduleName.slice(0, -1)}} does not exist</h4>
+    </div>
+    <div class="mb-2">
+        <h5 class="card-title">
+            <a *ngIf="canRead" routerLink="/{{moduleName}}/{{currentVehicle.id}}" class="text-primary">
+                <strong>{{currentVehicle.marque}}</strong>
+            </a>
+            <a *ngIf="canRead == false" class="text-dark">
+                <strong>{{currentVehicle.marque}}</strong>
+            </a>
+        </h5>
+        <div class="card-text mb-3">
+            <div class="row mb-1">
+                <div class="form-group mb-1">
+                    <label for="groupeName" class="form-label">Groupe Name</label>
+                    <input name="groupeName" required  [(ngModel)]="currentVehicle.groupeName" class="form-control"
+                        readonly />
+                </div>
+                <div class="form-group mb-1">
+                    <label for="seatNbr" class="form-label">Seat Nbr</label>
+                    <input name="seatNbr" required  [(ngModel)]="currentVehicle.seatNbr" class="form-control" readonly />
+                </div>
+                <div class="form-group mb-1">
+                    <label for="datePurchase" class="form-label">Date Purchase</label>
+                    <input name="datePurchase" required  [(ngModel)]="currentVehicle.datePurchase" class="form-control"
+                        readonly />
+                </div>
+            </div>
+        </div>
+        <div class="d-flex float-end">
+
+            <a *ngIf="canRead" class="btn btn-primary" routerLink="/{{moduleName}}/{{currentVehicle.id}}">See
+                detail</a>
+            <button *ngIf="!canRead" class="btn btn-dark" data-bs-toggle="tooltip" data-bs-offset="0,4"
+                data-bs-placement="top" data-bs-html="true"
+                title="<i class='bx bx-bell bx-xs' ></i> <span>Not allowed</span>">See detail</button>
+        </div>
+    </div>
+</div>

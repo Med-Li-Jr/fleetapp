@@ -1,0 +1,82 @@
+<app-btncreate moduleName="missions"></app-btncreate>
+
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>Vehicle</th>
+                    <th>Driver</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>Status</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <ng-template [ngIf]="missions.length == 0">
+                    <tr>
+                        <td colspan="7">There is not a mission </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template [ngIf]="missions.length > 0">
+                    <tr *ngFor="let mission of missions">
+
+                        <td>
+                            <a routerLink="/employees/{{mission.employeeId}}">
+
+                                <strong>{{mission.employeeFullname }}</strong>
+
+                            </a>
+                        </td>
+                        <td>
+                            <a routerLink="/vehicles/{{mission.vehicleId}}">
+
+                                <strong>{{mission.vehicleMarque }}</strong>
+
+                            </a>
+                        </td>
+                        <td>
+                            <a routerLink="/drivers/{{mission.driverId}}">
+
+                                <strong>{{mission.driverFullname }}</strong>
+
+                            </a>
+                        </td>
+
+                        <td>{{mission.sourceLocation }}</td>
+                        <td>{{mission.destinationLocation }}</td>
+                        <td>
+                            <span *ngIf="mission.status.toLowerCase() == 'finished'"
+                                class="badge bg-label-success me-1">{{mission.status}}</span>
+                            <span *ngIf="mission.status.toLowerCase() == 'waiting'"
+                                class="badge bg-label-warning me-1">{{mission.status}}</span>
+                            <span *ngIf="mission.status.toLowerCase() == 'started'"
+                                class="badge bg-label-primary me-1">{{mission.status}}</span>
+                        </td>
+                        <td class="text-center">
+                            <a class="mx-1" *ngIf="mission.status.toLowerCase() !== 'waiting'"
+                                routerLink="/missions/{{mission.id}}"><i class="bx bx-show "></i> </a>
+                            <app-btnstable *ngIf="mission.status.toLowerCase() == 'waiting'" moduleName="missions"
+                                itemId="{{mission.id}}"></app-btnstable>
+                        </td>
+                    </tr>
+                </ng-template>
+            </tbody>
+            <tfoot class="table-border-bottom-0">
+                <tr>
+                    <th>Employee</th>
+                    <th>Vehicle</th>
+                    <th>Driver</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>Status</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

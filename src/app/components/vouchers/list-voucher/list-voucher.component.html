@@ -1,0 +1,59 @@
+
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Vehicle</th>
+                    <th>Provider</th>
+                    <th>Total Liter</th>
+                    <th>Limit Date Usage</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <ng-template [ngIf]="vouchers.length == 0">
+                    <tr>
+                        <td colspan="6">There is not a voucher </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template [ngIf]="vouchers.length > 0">
+                    <tr *ngFor="let voucher of vouchers">
+
+                        <td>
+                            <a routerLink="/vehicles/{{voucher.vehicleId}}">
+
+                                <strong>{{voucher.vehicleMarque }}</strong>
+
+                            </a>
+                        </td>
+                        <td>
+                            <a routerLink="/providers/{{voucher.providerId}}">
+
+                                <strong>{{voucher.providerFullname }}</strong>
+
+                            </a>
+                        </td>
+
+                        <td>{{voucher.totalLiter }}</td>
+                        <td>{{voucher.dateLimiteUsage }}</td>
+                        <td class="text-center">
+                            <app-btnstable moduleName="vouchers" itemId="{{voucher.id}}"></app-btnstable>
+                        </td>
+                    </tr>
+                </ng-template>
+            </tbody>
+            <tfoot class="table-border-bottom-0">
+                <tr>
+                    <th>Vehicle</th>
+                    <th>Provider</th>
+                    <th>Total Liter</th>
+                    <th>Limit Date Usage</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

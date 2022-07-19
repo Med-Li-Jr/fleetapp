@@ -1,0 +1,51 @@
+<app-btncreate moduleName="providers"></app-btncreate>
+
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Matricule</th>
+                    <th>Fullname</th>
+                    <th>Email</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <ng-template [ngIf]="providers.length == 0">
+                    <tr>
+                        <td colspan="4">There is not an provider </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template [ngIf]="providers.length > 0">
+                    <tr *ngFor="let provider of providers">
+
+                        <td>
+                            <a routerLink="{{provider.id}}">
+
+                                <strong>{{provider.matricule }}</strong>
+
+                            </a>
+                        </td>
+
+                        <td>{{provider.fullname }}</td>
+                        <td>{{provider.email }}</td>
+                        <td class="text-center">
+                            <app-btnstable moduleName="providers" itemId="{{provider.id}}"></app-btnstable>
+                        </td>
+                    </tr>
+                </ng-template>
+            </tbody>
+            <tfoot class="table-border-bottom-0">
+                <tr>
+                    <th>Matricule</th>
+                    <th>Fullname</th>
+                    <th>Email</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

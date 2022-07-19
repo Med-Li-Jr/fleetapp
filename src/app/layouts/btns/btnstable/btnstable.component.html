@@ -1,0 +1,4 @@
+<a class="mx-1" *ngIf="canRead" routerLink="/{{moduleName}}/{{itemId}}"><i class="bx bx-show "></i> </a>
+<a class="mx-1" *ngIf="canRead == false" ><i style="color: black;" class="bx bx-show "></i> </a>
+<a class="mx-1" *ngIf="canUpdate" routerLink="/{{moduleName}}/{{itemId}}/update"><i class="bx bx-edit"></i></a>
+<a class="mx-1" *ngIf="canUpdate == false" ><i style="color: black;" class="bx bx-edit "></i> </a>

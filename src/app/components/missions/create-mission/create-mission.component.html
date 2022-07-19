@@ -1,0 +1,90 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin="" />
+
+<form #f="ngForm" ngNativeValidate (ngSubmit)="onSubmit()" enctype="multipart/form-data" autocomplete="off">
+    <div class="row">
+        <div class="mb-3">
+
+            <h5 class="">Mission Informations</h5>
+            <div class="form-control mb-3">
+                <div class="row">
+
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="vehicleMarque" class="form-label">Vehicle</label>
+                        <select name="vehicleMarque" required class="form-select" (change)="onChangeVehicle($event)">
+                            <option value="">Please choose the vehicle</option>
+
+                            <option *ngFor="let vehicle of allVehicles" value="{{vehicle.id}},{{vehicle.marque}}"
+                                [selected]="(currentMission.vehicleMarque.toLowerCase() == vehicle.marque.toLowerCase())">
+
+                                {{vehicle.marque}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="driverFullname" class="form-label">Driver</label>
+                        <select name="driverFullname" required class="form-select" (change)="onChangeDriver($event)">
+                            <option value="">Please choose the Driver</option>
+
+                            <option *ngFor="let driver of allDrivers" value="{{driver.id}},{{driver.fullname}}"
+                                [selected]="(currentMission.driverFullname.toLowerCase() == driver.fullname.toLowerCase())">
+
+                                {{driver.fullname}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label for="dateStart" class="form-label">Date Start</label>
+                            <input name="dateStart" type="date" required  [(ngModel)]="currentMission.dateStart"
+                                class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label for="dateEnd" class="form-label">Date End</label>
+                            <input name="dateEnd" type="date" required  [(ngModel)]="currentMission.dateEnd"
+                                class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+
+                        <input name="sourceLatitude" hidden [(ngModel)]="currentMission.sourceLatitude" class="form-control"
+                             />
+                        <input name="sourceLongitude" hidden [(ngModel)]="currentMission.sourceLongitude" class="form-control"
+                             />
+
+                        <label for="sourceLocation"> Source Loaction</label>
+                        <input name="sourceLocation" readonly required [(ngModel)]="currentMission.sourceLocation" class="form-control"
+                             />
+                        <div class="map mt-3" id='mapLocSrc'></div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input name="destinationLatitude" hidden [(ngModel)]="currentMission.destinationLatitude"
+                            class="form-control"  />
+                        <input name="destinationLongitude" hidden [(ngModel)]="currentMission.sourceLongitude"
+                            class="form-control"  />
+
+                        <label for="destinationLocation">Destination Location</label>
+                        <input name="destinationLocation" readonly required [(ngModel)]="currentMission.destinationLocation"
+                            class="form-control"  />
+                        <div class="map mt-3" id='mapLocDest'></div>
+                    </div>
+                </div>
+                <div class="form-group mt-3 clearfix">
+                    <a routerLink="/missions" class="btn btn-outline-secondary float-end ms-3">Cancel </a>
+                    <button type="submit" class="btn btn-primary float-end">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

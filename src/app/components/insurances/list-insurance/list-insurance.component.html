@@ -1,0 +1,59 @@
+
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Vehicle</th>
+                    <th>Agence</th>
+                    <th>Price</th>
+                    <th>Limit Date</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                
+                <ng-template [ngIf]="insurances.length > 0">
+                    <tr *ngFor="let insurance of insurances">
+
+                        <td>
+                            <a routerLink="/vehicles/{{insurance.vehicleId}}">
+
+                                <strong>{{insurance.vehicleMarque }}</strong>
+
+                            </a>
+                        </td>
+                        <td>
+                            {{insurance.nameAgence }}
+                        </td>
+
+                        <td>{{insurance.price }}</td>
+                        <td>{{insurance.dateLimiteUsage }}</td>
+                        <td class="text-center">
+                            <app-btnstable moduleName="insurances" itemId="{{insurance.id}}"></app-btnstable>
+                        </td>
+                    </tr>
+                </ng-template>
+
+
+                <ng-template [ngIf]="insurances.length == 0">
+                    <tr>
+                        <td colspan="5">There is not an insurance </td>
+                    </tr>
+                </ng-template>
+
+            </tbody>
+            <tfoot class="table-border-bottom-0">
+                <tr>
+                    <th>Vehicle</th>
+                    <th>Agence</th>
+                    <th>Price</th>
+                    <th>Limit Date</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+

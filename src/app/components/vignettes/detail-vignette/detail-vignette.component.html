@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-6 mb-3">
+        <h5 class="">Vignette Informations</h5>
+        <div class="form-control mb-3">
+            <div class="row">
+
+                <div class="form-group mb-3">
+                    <label for="vehicleMarque" class="form-label">Vehicle</label>
+                    <input name="vehicleMarque" readonly [(ngModel)]="currentVignette.vehicleMarque"
+                        class="form-control" />
+                </div>
+                <div class="form-group mb-3">
+                    <label for="type" class="form-label">Type</label>
+                    <input name="type" readonly [(ngModel)]="currentVignette.type" class="form-control" />
+                </div>
+                <div class="form-group mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input name="price" step=".01" type="number" readonly [(ngModel)]="currentVignette.price"
+                        class="form-control" />
+                </div>
+                <div class="form-group mb-3">
+                    <label for="dueDate" class="form-label">Due Date</label>
+                    <input name="dueDate" type="date" readonly [(ngModel)]="currentVignette.dueDate"
+                        class="form-control" />
+                </div>
+            </div>
+            <app-btnsdetail moduleName="vignettes" [itemId]="currentVignette.id.toString()"
+                (btnDeleteClicked)="onDelete()"></app-btnsdetail>
+        </div>
+    </div>
+    <div class="col-md-6 mb-3">
+        <h5 class="">Vehicle</h5>
+        <div class="form-control">
+            <app-card-vehicle [currentVehicle]="currentVignette.vehicle" [moduleName]="'vehicles'"></app-card-vehicle>
+        </div>
+    </div>
+</div>

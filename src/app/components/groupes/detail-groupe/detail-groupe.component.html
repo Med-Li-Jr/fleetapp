@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-6 mb-3">
+
+        <h5 class="">Groupe Informations</h5>
+        <div class="form-control mb-3">
+            <div class="row">
+
+                <div class="form-group mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input name="name" required  [(ngModel)]="currentGroupe.name" class="form-control" readonly />
+                </div>
+                <div class="form-group mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" required  [(ngModel)]="currentGroupe.description" class="form-control"
+                        readonly></textarea>
+                </div>
+            </div>
+            <app-btnsdetail moduleName="groupevehicles" [itemId]="currentGroupe.id.toString()"
+                (btnDeleteClicked)="onDelete()"></app-btnsdetail>
+        </div>
+    </div>
+
+</div>
+
+<div>
+    <h5 class="">List Vehicles</h5>
+    <app-list-vehicle [vehicles]="currentGroupe.allVehicles"></app-list-vehicle>
+</div>

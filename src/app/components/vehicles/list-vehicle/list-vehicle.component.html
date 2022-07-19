@@ -1,0 +1,65 @@
+
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Marque</th>
+                    <th>Groupe</th>
+                    <th>Seat</th>
+                    <th>Date Purchase</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <ng-template [ngIf]="vehicles.length == 0">
+                    <tr>
+                        <td colspan="6">There is not a vehicle </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template [ngIf]="vehicles.length > 0">
+                    <tr *ngFor="let vehicle of vehicles">
+
+                        <td>
+                            <a routerLink="/vehicles/{{vehicle.id}}">
+
+                                <img *ngIf="(vehicle.imageUrl.length > 0) ;else image_default"
+                                    src="{{ vehicle.imageUrl}}"
+                                    class="w-px-50 h-px-50 mx-auto me-1 rounded-circle myImgVehicleTable">
+
+                                <ng-template #image_default>
+                                    <img src="assets/img/vehicles/vehicle0.jpg"
+                                        class="w-px-50 h-px-50 mx-auto  me-1 rounded-circle myImgVehicleTable">
+                                </ng-template>
+
+
+                                <strong>{{vehicle.marque }}</strong>
+
+                            </a>
+                        </td>
+
+                        <td> 
+                            <a routerLink="/groupevehicles/{{vehicle.groupeId}}"> {{vehicle.groupeName}} </a>
+                        </td>
+                        <td>{{vehicle.seatNbr }}</td>
+                        <td>{{vehicle.datePurchase }}</td>
+                        <td class="text-center">
+                            <app-btnstable moduleName="vehicles" itemId="{{vehicle.id}}"></app-btnstable>
+                        </td>
+                    </tr>
+                </ng-template>
+            </tbody>
+            <tfoot class="table-border-bottom-0">
+                <tr>
+                    <th>Marque</th>
+                    <th>Groupe</th>
+                    <th>Seat</th>
+                    <th>Date Purchase</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

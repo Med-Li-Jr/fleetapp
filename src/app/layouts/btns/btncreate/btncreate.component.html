@@ -1,0 +1,11 @@
+<div class="d-grid gap-2 mb-2 d-md-flex justify-content-end">
+
+    <a *ngIf="canCreate" class="btn btn-primary" routerLink="add">Add</a>
+    <button *ngIf="canCreate == false" class="btn btn-dark" 
+    data-bs-toggle="tooltip"
+    data-bs-offset="0,4"
+    data-bs-placement="top"
+    data-bs-html="true"
+    title="<i class='bx bx-bell bx-xs' ></i> <span>Not allowed</span>"
+    >Add</button>
+</div>

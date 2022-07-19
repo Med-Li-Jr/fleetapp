@@ -1,0 +1,71 @@
+<form #f="ngForm" ngNativeValidate (ngSubmit)="onSubmit()" enctype="multipart/form-data" autocomplete="off">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+
+            <h5 class="">Voucher Informations</h5>
+            <div class="form-control mb-3">
+                <div class="row">
+
+                    <div class="form-group mb-3">
+                        <label for="vehicleMarque" class="form-label">Vehicle</label>
+                        <select name="vehicleMarque" required class="form-select" (change)="onChangeVehicle($event)">
+                            <option value="">Please choose the vehicle</option>
+
+                            <option *ngFor="let vehicle of allVehicles" value="{{vehicle.id}},{{vehicle.marque}}"
+                                [selected]="(currentVoucher.vehicleId == vehicle.id)">
+
+                                {{vehicle.marque}}
+                            </option>
+                        </select>
+                    </div>
+                    <!-- <div class="form-group mb-3">
+                        <label for="employeeFullname" class="form-label">Employee</label>
+                        <select name="employeeFullname" required class="form-select" (change)="onChangeEmployee($event)">
+                            <option value="">Please choose the employee</option>
+
+                            <option *ngFor="let employee of allEmployees" value="{{employee.id}},{{employee.fullname}}"
+                                [selected]="(currentVoucher.employeeId == employee.id)">
+
+                                {{employee.fullname}}
+                            </option>
+                        </select>
+                    </div> -->
+                    <div class="form-group mb-3">
+                        <label for="providerFullname" class="form-label">Provider</label>
+                        <select name="providerFullname" required class="form-select" (change)="onChangeProvider($event)">
+                            <option value="">Please choose the Provider</option>
+
+                            <option *ngFor="let provider of allProviders" value="{{provider.id}},{{provider.fullname}}"
+                                [selected]="(currentVoucher.providerId == provider.id)">
+
+                                {{provider.fullname}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="price" class="form-label">Price</label>
+                        <input name="price" step=".01" type="number" required  [(ngModel)]="currentVoucher.price" class="form-control" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="totalLiter" class="form-label">Total Liter</label>
+                        <input name="totalLiter" step=".01" type="number" required  [(ngModel)]="currentVoucher.totalLiter" class="form-control" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="dateStartUsage" class="form-label">Date Start Usage</label>
+                        <input name="dateStartUsage" type="date" required  [(ngModel)]="currentVoucher.dateStartUsage" class="form-control" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="dateLimiteUsage" class="form-label">Date Limite Usage</label>
+                        <input name="dateLimiteUsage" type="date" required  [(ngModel)]="currentVoucher.dateLimiteUsage" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group mt-3 clearfix">
+                    <a routerLink="/vouchers/{{currentVoucher.id}}"
+                        class="btn btn-outline-secondary float-end ms-3">Cancel
+                    </a>
+                    <button type="submit" class="btn btn-primary float-end">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
