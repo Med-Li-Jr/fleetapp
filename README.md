@@ -22,10 +22,13 @@ Here is the link to the demo:
 
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence2.png" width="80%">
+<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence2.png" width="45%">
+<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence7.png" width="45%">
+<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence6.png" width="45%">
+<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence4.png" width="45%">
 </p>
 <p align="center">
   <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="200" title="hover text">
-  <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="200" alt="accessibility text">
-  <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="200" alt="accessibility text">
+  <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence6a.png" width="200" alt="accessibility text">
+  <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence7a.png" width="200" alt="accessibility text">
 </p>
