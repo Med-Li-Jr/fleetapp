@@ -12,25 +12,28 @@ The first version named **`BonFlotte`** was developed with :
 
 The second version named **`FleetApp`** was developed with :
 
--- <a href="https://angular.io/" target="_blank">Angular</a>  | <a href="https://flutter.dev/" target="_blank">Flutter</a> | <a href="https://docs.microsoft.com/en-us/aspnet/core/" target="_blank">Net Core</a> | <a href="https://www.microsoft.com/en-us/sql-server/" target="_blank">Sql Server</a> | <a href="https://firebase.google.com/" target="_blank">Firebase</a> | <a href="https://www.mapbox.com/" target="_blank">MapBox API</a>
+-- <a href="https://angular.io/" target="_blank">Angular</a>  | <a href="https://flutter.dev/" target="_blank">Flutter</a> | <a href="https://docs.microsoft.com/en-us/aspnet/core/" target="_blank">.Net Core</a> | <a href="https://www.microsoft.com/en-us/sql-server/" target="_blank">Sql Server</a> | <a href="https://firebase.google.com/" target="_blank">Firebase</a> | <a href="https://www.mapbox.com/" target="_blank">MapBox API</a>
 
 ## Interfaces App
 
 Here is the link to the demo:
-<a href="https://www.m-test-ang.tk/" target="_blank">Fleet App</a>
+<a href="https://med-li-jr.github.io/fleetapp/" target="_blank">Fleet App website</a>
 
 
-
-<p align="center">
-<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence2.png" width="48%">
-<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence7.png" width="48%">
+<p>
+<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence2.png" width="49%">
+<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence7.png" width="49%">
 </p>
-<p align="center">
-<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence6.png" width="48%">
-<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence4.png" width="48%">
+
+
+<p>
+<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence6.png" width="49%">
+<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence4.png" width="49%">
 </p>
+
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="200" title="hover text">
-  <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence6a.png" width="200" alt="accessibility text">
-  <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence7a.png" width="200" alt="accessibility text">
+     <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence6a.png" width="200" alt="accessibility text">
+     <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence7a.png" width="200" alt="accessibility text">
 </p>
