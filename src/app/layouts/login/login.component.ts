@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.helperService.setIsLoading(false)
     if (this.loginService.isAuthenticated()) {
 
       this.firstMenu = this.loginService.getFirstMenu();
@@ -84,7 +85,7 @@ export class LoginComponent implements OnInit {
 
           
           if (this.firstMenu.length == 0)
-            this.helperService.showErrorToast("Error : user does not dd have any read privilege");
+            this.helperService.showErrorToast("Error : user does not have any read privilege");
 
           else if (this.showNextTime == true)
             (<HTMLElement>document.getElementById("btnbackDropModal"))?.click();

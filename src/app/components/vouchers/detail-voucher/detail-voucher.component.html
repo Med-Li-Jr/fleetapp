@@ -20,12 +20,12 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="price" class="form-label">Price</label>
-                    <input name="price" type="number" readonly [(ngModel)]="currentVoucher.price"
+                    <input name="price" step=".01" type="number" readonly [(ngModel)]="currentVoucher.price"
                         class="form-control" />
                 </div>
                 <div class="form-group mb-3">
                     <label for="totalLiter" class="form-label">Total Liter</label>
-                    <input name="totalLiter" type="number" readonly [(ngModel)]="currentVoucher.totalLiter"
+                    <input name="totalLiter" step=".01" type="number" readonly [(ngModel)]="currentVoucher.totalLiter"
                         class="form-control" />
                 </div>
                 <div class="form-group mb-3">

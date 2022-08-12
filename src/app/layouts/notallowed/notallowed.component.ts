@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MyhelperService } from 'src/app/services/myhelper.service';
 
 @Component({
   selector: 'app-notallowed',
@@ -8,9 +9,10 @@ import { Router } from '@angular/router';
 })
 export class NotallowedComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private helperService: MyhelperService,private router: Router) { }
 
   ngOnInit(): void {
+    this.helperService.setIsLoading(false)
   }
   onBack()
   {

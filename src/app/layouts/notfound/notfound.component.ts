@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MyhelperService } from 'src/app/services/myhelper.service';
 
 @Component({
   selector: 'app-notfound',
@@ -9,9 +10,11 @@ import { Router } from '@angular/router';
 export class NotfoundComponent implements OnInit {
 
   requestedUrl : string = ''
-  constructor(private router: Router) { }
+  
+  constructor(private helperService: MyhelperService,private router: Router) { }
 
   ngOnInit(): void {
+    this.helperService.setIsLoading(false)
     this.requestedUrl = this.router.url.replace("/", "")
   }
   onBack()

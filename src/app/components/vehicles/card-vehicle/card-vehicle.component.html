@@ -1,6 +1,6 @@
 <div class="card h-100 px-2">
     <div class="d-flex h-px-250 align-self-center justify-content-center">
-        <img *ngIf="isExist == true" class="w-100 pb-3 pt-2 align-self-center myCardImgVehicle"
+        <img *ngIf="isExist == true" class="pb-3 pt-2 align-self-center myCardImgVehicle "
             src="{{currentVehicle.imageUrl}}" alt="Vehicle Image" />
             <h4 *ngIf="isExist == false" class="align-self-center">{{this.moduleName.slice(0, -1)}} does not exist</h4>
     </div>
