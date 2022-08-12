@@ -22,7 +22,7 @@ Here is the link to the demo:
 
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence2.png" width="400">
+<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence2.png" width="80%">
 </p>
 <p align="center">
   <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="200" title="hover text">
