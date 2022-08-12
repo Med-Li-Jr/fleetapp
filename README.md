@@ -19,9 +19,10 @@ The second version named **`FleetApp`** was developed with :
 Here is the link to the demo:
 <a href="https://www.m-test-ang.tk/" target="_blank">Fleet App</a>
 
-<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence2.png" width="100%">
 
 <p align="center">
+<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence2.png" width="400">
+
   <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="200" title="hover text">
   <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="200" alt="accessibility text">
   <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="200" alt="accessibility text">
