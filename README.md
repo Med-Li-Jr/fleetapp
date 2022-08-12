@@ -19,9 +19,11 @@ The second version named **`FleetApp`** was developed with :
 Here is the link to the demo:
 <a href="https://www.m-test-ang.tk/" target="_blank">Fleet App</a>
 
-[https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence2.png|width=100%]
-[https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png|width=100]
-[https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png|width=100]
-[https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png|width=100]
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="100%" title="hover text">
+  <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="100" alt="accessibility text">
+  <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="100" alt="accessibility text">
+</p>
 
-<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence2.png" width="100%">  <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="150">  <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="150">  <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="150">
+
+<img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence2.png" width="100%">  <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="200">  <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="200">  <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence3.png" width="200">
