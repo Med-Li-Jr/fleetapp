@@ -18,6 +18,7 @@ export class CreateGuard implements CanActivate {
     let canCreate = this.loginService.canCreate(route.data["moduleName"]);
 
     if (isLoggedIn){
+      console.log(route)
       if(canCreate)
         return true
       else

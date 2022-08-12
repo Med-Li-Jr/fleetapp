@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import * as L from 'leaflet';
 import { groupesDB, insurancesDB, missionsDB, privilegesDB, providersDB, tracersDB, usersDB, vehiclesDB, vignettesDB, vouchersDB } from './mocks/data-mocks';
 
 @Injectable({
@@ -18,24 +17,7 @@ export class MyhelperService {
     return this.isLoginPage;
   }
 
-  getMarkerIcon(color : string) {
 
-    // let mIconUrl = "assets/img/icons/pin_blue.png"
-
-    // if(color.toLowerCase() == 'red')
-    //   mIconUrl = "assets/img/icons/pin_red.png"
-    // else
-    //   mIconUrl = "assets/img/icons/pin_" + color.toLowerCase() + ".png"
-
-    return L.icon({
-      iconUrl: "assets/img/icons/pin_" + color.toLowerCase() + ".png",
-      shadowUrl: 'assets/img/icons/marker_shadow.png',
-
-      iconSize:     [25, 41], // size of the icon
-      iconAnchor:   [12, 41], // point of the icon which will correspond to marker's location
-      shadowAnchor: [10, 41],  // the same for the shadow
-  });
-  }
   configData() {
 
     if (localStorage.getItem("usersTable") == null)
@@ -140,7 +122,7 @@ export class MyhelperService {
   public loadScript() {
     // alert('load')
     let node = document.createElement('script');
-    node.src = "assets/js/site.js";
+    node.src = "/assets/js/site.js";
     // node.type = 'text/javascript';
     node.async = false;
     node.charset = 'utf-8';

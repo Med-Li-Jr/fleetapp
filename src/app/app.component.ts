@@ -12,13 +12,13 @@ export class AppComponent  {
   getScreenHeight: any;
   
   arrayScriptsJS: string[] = [
-    "assets/vendor/libs/jquery/jquery.js",
-    "assets/vendor/libs/popper/popper.js",
-    "assets/vendor/js/bootstrap.js",
-    "assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js",
-    "assets/vendor/js/menu.js",
-    "assets/js/mymain.js",
-    "assets/js/ui-toasts.js",
+    "/assets/vendor/libs/jquery/jquery.js",
+    "/assets/vendor/libs/popper/popper.js",
+    "/assets/vendor/js/bootstrap.js",
+    "/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js",
+    "/assets/vendor/js/menu.js",
+    "/assets/js/mymain.js",
+    "/assets/js/ui-toasts.js",
     "https://buttons.github.io/buttons.js",
   ];
 

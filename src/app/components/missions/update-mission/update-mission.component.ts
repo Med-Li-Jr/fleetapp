@@ -179,10 +179,10 @@ export class UpdateMissionComponent implements OnInit {
         accessToken: KEYMAPBOX
     }).addTo(mapLocDest);
 
-    let srcMarker = L.marker(sourceLatlng,{icon: mainThis.helperService.getMarkerIcon("blue")}).addTo(mapLocSrc)
-    .bindPopup('Marker Source.', { closeButton: false })
-    let destMarker = L.marker(destinationLatlng,{icon: mainThis.helperService.getMarkerIcon("blue")}).addTo(mapLocDest)
-    .bindPopup('Marker Destination.', { closeButton: false })
+    let srcMarker = L.marker(sourceLatlng).addTo(mapLocSrc)
+    .bindPopup('Marker Source.')
+    let destMarker = L.marker(destinationLatlng).addTo(mapLocDest)
+    .bindPopup('Marker Destination.')
 
 
 
@@ -198,8 +198,8 @@ export class UpdateMissionComponent implements OnInit {
         )
 
       mapLocSrc.removeLayer(srcMarker)
-      srcMarker = L.marker(ev.latlng,{icon: mainThis.helperService.getMarkerIcon("blue")}).addTo(mapLocSrc)
-          .bindPopup('Marker Source.', { closeButton: false })
+      srcMarker = L.marker(ev.latlng).addTo(mapLocSrc)
+          .bindPopup('Marker Source.')
   });
 
   mapLocDest.on('click', function (ev: any) {
@@ -214,8 +214,8 @@ export class UpdateMissionComponent implements OnInit {
         )
 
       mapLocDest.removeLayer(destMarker)
-      destMarker = L.marker(ev.latlng,{icon: mainThis.helperService.getMarkerIcon("blue")}).addTo(mapLocDest)
-          .bindPopup('Marker Destination.', { closeButton: false })
+      destMarker = L.marker(ev.latlng).addTo(mapLocDest)
+          .bindPopup('Marker Destination.')
   });
     }
     catch (e) {

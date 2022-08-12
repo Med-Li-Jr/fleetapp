@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MyhelperService } from 'src/app/services/myhelper.service';
 
 @Component({
   selector: 'app-smallscreen',
@@ -8,10 +7,9 @@ import { MyhelperService } from 'src/app/services/myhelper.service';
 })
 export class SmallscreenComponent implements OnInit {
 
-  constructor(private helperService: MyhelperService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.helperService.setIsLoading(false)
   }
 
 }

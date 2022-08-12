@@ -51,6 +51,7 @@ export class DetailInsuranceComponent implements OnInit {
           this.helperService.setIsLoading(false);
         },
         error => {
+          alert(id)
           this.helperService.showErrorToast(error)
         }
       );

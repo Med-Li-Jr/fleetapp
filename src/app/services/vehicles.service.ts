@@ -138,7 +138,7 @@ export class VehiclesService {
     }
 
     let newVehicle = this.convertCreateToModal(vehicle, (this.bllService.getLastIdFromData(vehiclesTB) + 1))
-    newVehicle.imageUrl = imageVehicle ?? "assets/img/avatars/default_vehicle.jpeg"
+    newVehicle.imageUrl = imageVehicle ?? "/assets/img/avatars/default_vehicle.jpeg"
     vehiclesTB.push(newVehicle)
     this.updateTable()
     

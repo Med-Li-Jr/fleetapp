@@ -9,206 +9,166 @@ import { VehicleModal } from "../../modals/vehicle.modal";
 import { VignetteModal } from "../../modals/vignette.modal";
 import { VoucherModal } from "../../modals/voucher.modal";
 
-export let groupesDB: GroupeModal[] = [
-    {
-        "id": 2,
-        "name": "Groupe1",
-        "description": "Description Groupe 1"
-    },
-    {
-        "id": 3,
-        "name": "Groupe2",
-        "description": "Description Groupe 2"
-    },
-    {
-        "id": 4,
-        "name": "Groupe3",
-        "description": "Description Groupe 3"
-    },
-    {
-        "id": 5,
-        "name": "Groupe4",
-        "description": "Description Groupe 4"
-    }
-];
+/* GROUPES DB */
+export let groupesDB: GroupeModal[] =
+    [
+        {
+            "id": 1,
+            "name": "Groupe1",
+            "description": "Description Groupe 1"
+        },
+        {
+            "id": 2,
+            "name": "Groupe2",
+            "description": "Description Groupe 2"
+        },
+        {
+            "id": 3,
+            "name": "Groupe3",
+            "description": "Description Groupe 3"
+        },
+        {
+            "id": 4,
+            "name": "Groupe4",
+            "description": "Description Groupe 4"
+        },
+        {
+            "id": 5,
+            "name": "Groupe5",
+            "description": "Description Groupe 5"
+        }
+    ]
 
-export let insurancesDB: InsuranceModal[] = [
-    {
-        "id": 2,
-        "vehicleId": 2,
-        "vehicleMarque": "Vehicle1",
-        "nameAgence": "Agence1",
-        "price": 123,
-        "dateStartUsage": "2022-06-26",
-        "dateLimiteUsage": "2022-07-27"
-    },
-    {
-        "id": 3,
-        "vehicleId": 3,
-        "vehicleMarque": "Vehicle2",
-        "nameAgence": "Agence2",
-        "price": 456,
-        "dateStartUsage": "2022-07-12",
-        "dateLimiteUsage": "2022-09-23"
-    },
-    {
-        "id": 4,
-        "vehicleId": 3,
-        "vehicleMarque": "Vehicle2",
-        "nameAgence": "Agence1",
-        "price": 789,
-        "dateStartUsage": "2022-07-28",
-        "dateLimiteUsage": "2022-10-08"
-    },
-    {
-        "id": 5,
-        "vehicleId": 4,
-        "vehicleMarque": "Vehicle3",
-        "nameAgence": "Agence3",
-        "price": 97,
-        "dateStartUsage": "2022-07-16",
-        "dateLimiteUsage": "2022-10-13"
-    },
-    {
-        "id": 6,
-        "vehicleId": 2,
-        "vehicleMarque": "Vehicle1",
-        "nameAgence": "Agence1",
-        "price": 741,
-        "dateStartUsage": "2022-08-06",
-        "dateLimiteUsage": "2022-11-18"
-    },
-    {
-        "id": 7,
-        "vehicleId": 5,
-        "vehicleMarque": "Vehicle4",
-        "nameAgence": "Agence2",
-        "price": 159,
-        "dateStartUsage": "2022-09-15",
-        "dateLimiteUsage": "2022-11-30"
-    },
-    {
-        "id": 8,
-        "vehicleId": 6,
-        "vehicleMarque": "Vehicle5",
-        "nameAgence": "Agence3",
-        "price": 357,
-        "dateStartUsage": "2022-11-04",
-        "dateLimiteUsage": "2023-02-02"
-    }
-];
 
-export let missionsDB: MissionModal[] = [
-    {
-        "id": 2,
-        "vehicleId": 2,
-        "vehicleMarque": "Vehicle1",
-        "employeeId": 2,
-        "employeeFullname": "AdmEmp",
-        "driverId": 6,
-        "driverFullname": "Driv1",
-        "status": "waiting",
-        "dateStart": "2022-07-01",
-        "dateEnd": "2022-07-01",
-        "sourceLatitude": 36.684279114923775,
-        "sourceLongitude": 9.382324218750002,
-        "sourceLocation": "سيدي عامر, Béja",
-        "destinationLatitude": 33.95976371991848,
-        "destinationLongitude": 9.645996093750002,
-        "destinationLocation": "بشيمة البرج, Gabès"
-    },
-    {
-        "id": 3,
-        "vehicleId": 3,
-        "vehicleMarque": "Vehicle2",
-        "employeeId": 2,
-        "employeeFullname": "AdmEmp",
-        "driverId": 3,
-        "driverFullname": "AdmDriver",
-        "status": "waiting",
-        "dateStart": "2022-07-08",
-        "dateEnd": "2022-07-20",
-        "sourceLatitude": 36.47253975414894,
-        "sourceLongitude": 8.723144531250002,
-        "sourceLocation": "الخضراء, Jendouba",
-        "destinationLatitude": 32.507908649863566,
-        "destinationLongitude": 10.56884765625,
-        "destinationLocation": "القلعة الشرقية, Tataouine"
-    },
-    {
-        "id": 4,
-        "vehicleId": 4,
-        "vehicleMarque": "Vehicle3",
-        "employeeId": 1,
-        "employeeFullname": "SupAdmin",
-        "driverId": 6,
-        "driverFullname": "Driv1",
-        "status": "finished",
-        "dateStart": "2022-06-25",
-        "dateEnd": "2022-06-26",
-        "sourceLatitude": 37.03588560718272,
-        "sourceLongitude": 9.272460937500002,
-        "sourceLocation": "سجنان, Bizerte",
-        "destinationLatitude": 34.57804779650303,
-        "destinationLongitude": 8.624267578125002,
-        "destinationLocation": "كاف دربي, Gafsa"
-    },
-    {
-        "id": 5,
-        "vehicleId": 5,
-        "vehicleMarque": "Vehicle4",
-        "employeeId": 1,
-        "employeeFullname": "SupAdmin",
-        "driverId": 6,
-        "driverFullname": "Driv1",
-        "status": "waiting",
-        "dateStart": "2022-08-01",
-        "dateEnd": "2022-08-02",
-        "sourceLatitude": 35.297642067638066,
-        "sourceLongitude": 10.744628906250002,
-        "sourceLocation": "العشابة, Mahdia",
-        "destinationLatitude": 34.432285508898566,
-        "destinationLongitude": 10.151367187500002,
-        "destinationLocation": "الحشيشينة الجنوبية, Sfax"
-    },
-    {
-        "id": 6,
-        "vehicleId": 6,
-        "vehicleMarque": "Vehicle5",
-        "employeeId": 4,
-        "employeeFullname": "Emp1",
-        "driverId": 3,
-        "driverFullname": "AdmDriver",
-        "status": "waiting",
-        "dateStart": "2022-08-01",
-        "dateEnd": "2022-07-02",
-        "sourceLatitude": 35.744728809339655,
-        "sourceLongitude": 10.437011718750002,
-        "sourceLocation": "كروسية المركزية, Sousse",
-        "destinationLatitude": 35.31557331379036,
-        "destinationLongitude": 8.811035156250002,
-        "destinationLocation": "سمامة, Kasserine"
-    },
-    {
-        "id": 7,
-        "vehicleId": 4,
-        "vehicleMarque": "Vehicle3",
-        "employeeId": 4,
-        "employeeFullname": "Emp1",
-        "driverId": 6,
-        "driverFullname": "Driv1",
-        "status": "finished",
-        "dateStart": "2022-06-08",
-        "dateEnd": "2022-06-27",
-        "sourceLatitude": 35.3514238809726,
-        "sourceLongitude": 10.107421875000002,
-        "sourceLocation": "أولاد عاشور, Kairouan",
-        "destinationLatitude": 36.36733719763421,
-        "destinationLongitude": 8.800048828125002,
-        "destinationLocation": "سيدي خيار, Al Kaf"
-    }
-];
+/* INSURANCES DB */
+export let insurancesDB: InsuranceModal[] =
+    [
+        {
+            "id": 1,
+            "vehicleId": 1,
+            "vehicleMarque": "Vehicle1",
+            "nameAgence": "Agence 1",
+            "price": 123,
+            "dateStartUsage": "2022-06-27",
+            "dateLimiteUsage": "2022-07-08",
+        },
+        {
+            "id": 2,
+            "vehicleId": 3,
+            "vehicleMarque": "Vehicle2",
+            "nameAgence": "Agence 2",
+            "price": 456,
+            "dateStartUsage": "2022-06-29",
+            "dateLimiteUsage": "2022-09-16",
+        },
+        {
+            "id": 3,
+            "vehicleId": 4,
+            "vehicleMarque": "Vehicle3",
+            "nameAgence": "Agence 3",
+            "price": 789,
+            "dateStartUsage": "2022-06-11",
+            "dateLimiteUsage": "2022-10-28",
+        },
+        {
+            "id": 4,
+            "vehicleId": 3,
+            "vehicleMarque": "Vehicle2",
+            "nameAgence": "Agence 2",
+            "price": 741,
+            "dateStartUsage": "2022-08-18",
+            "dateLimiteUsage": "2022-09-24",
+        },
+        {
+            "id": 5,
+            "vehicleId": 6,
+            "vehicleMarque": "Vehicle4",
+            "nameAgence": "Agence 2",
+            "price": 852,
+            "dateStartUsage": "2022-07-08",
+            "dateLimiteUsage": "2022-10-20",
+        }
+    ]
 
+/* MISSIONS DB */
+export let missionsDB: MissionModal[] =
+
+    [
+        {
+            "id": 2,
+            "employeeId": 1,
+            "vehicleId": 1,
+            "driverId": 6,
+            "status": "waiting",
+            "sourceLatitude": 36.578482018843076,
+            "sourceLongitude": 10.245929671685206,
+            "sourceLocation": "السلام, Ben Arous",
+            "destinationLatitude": 35.79910280910871,
+            "destinationLongitude": 10.653609920609824,
+            "destinationLocation": "قصيبة الشط, Sousse",
+            "dateStart": "2022-07-01",
+            "dateEnd": "2022-07-02",
+            "employeeFullname": "SuperAdmin",
+            "driverFullname": "Driver1",
+            "vehicleMarque": "Vehicle1",
+        },
+        {
+            "id": 3,
+            "employeeId": 1,
+            "vehicleId": 3,
+            "driverId": 8,
+            "status": "waiting",
+            "sourceLatitude": 35.5304379885449,
+            "sourceLongitude": 11.0302734375,
+            "sourceLocation": "هيبون, Mahdia",
+            "destinationLatitude": 33.484602764044965,
+            "destinationLongitude": 10.393066406250002,
+            "destinationLocation": "الراقوبة الغربية, Médenine",
+            "dateStart": "2022-07-03",
+            "dateEnd": "2022-07-05",
+            "employeeFullname": "SuperAdmin",
+            "driverFullname": "Driver2",
+            "vehicleMarque": "Vehicle2",
+        },
+        {
+            "id": 4,
+            "employeeId": 5,
+            "vehicleId": 4,
+            "driverId": 6,
+            "status": "finished",
+            "sourceLatitude": 36.52552902240466,
+            "sourceLongitude": 9.140625000000002,
+            "sourceLocation": "تيبار, Béja",
+            "destinationLatitude": 32.78542718260786,
+            "destinationLongitude": 10.766601562500002,
+            "destinationLocation": "قصر مهيرة, Tataouine",
+            "dateStart": "2022-07-07",
+            "dateEnd": "2022-07-10",
+            "employeeFullname": "Employee2",
+            "driverFullname": "Driver1",
+            "vehicleMarque": "Vehicle3",
+        },
+        {
+            "id": 5,
+            "employeeId": 2,
+            "vehicleId": 4,
+            "driverId": 3,
+            "status": "waiting",
+            "sourceLatitude": 35.49556154352994,
+            "sourceLongitude": 10.854492187500002,
+            "sourceLocation": "الشراحيل, Monastir",
+            "destinationLatitude": 34.721748842642256,
+            "destinationLongitude": 10.634765625,
+            "destinationLocation": "الحاجب, Sfax",
+            "dateStart": "2022-07-29",
+            "dateEnd": "2022-07-30",
+            "employeeFullname": "AdminEmployee",
+            "driverFullname": "AdminDriver",
+            "vehicleMarque": "Vehicle3",
+        }
+    ]
+
+/* PRIVILEGES DB */
 export let privilegesDB: PrivilegeModal[] = [
     {
         "id": 1,
@@ -307,7 +267,7 @@ export let privilegesDB: PrivilegeModal[] = [
         "canCreate": true,
         "canRead": true,
         "canUpdate": true,
-        "canDelete": false
+        "canDelete": true
     },
     {
         "id": 12,
@@ -316,7 +276,7 @@ export let privilegesDB: PrivilegeModal[] = [
         "canCreate": true,
         "canRead": true,
         "canUpdate": true,
-        "canDelete": false
+        "canDelete": true
     },
     {
         "id": 13,
@@ -333,69 +293,69 @@ export let privilegesDB: PrivilegeModal[] = [
         "moduleName": "Missions",
         "canCreate": true,
         "canRead": true,
-        "canUpdate": true,
-        "canDelete": true
+        "canUpdate": false,
+        "canDelete": false
     },
     {
         "id": 15,
         "userID": 2,
         "moduleName": "Tracers",
-        "canCreate": true,
+        "canCreate": false,
         "canRead": true,
-        "canUpdate": true,
-        "canDelete": true
+        "canUpdate": false,
+        "canDelete": false
     },
     {
         "id": 16,
         "userID": 2,
         "moduleName": "GroupeVehicles",
-        "canCreate": true,
+        "canCreate": false,
         "canRead": true,
-        "canUpdate": true,
-        "canDelete": true
+        "canUpdate": false,
+        "canDelete": false
     },
     {
         "id": 17,
         "userID": 2,
         "moduleName": "Insurances",
-        "canCreate": true,
+        "canCreate": false,
         "canRead": true,
-        "canUpdate": true,
-        "canDelete": true
+        "canUpdate": false,
+        "canDelete": false
     },
     {
         "id": 18,
         "userID": 2,
         "moduleName": "Providers",
-        "canCreate": true,
+        "canCreate": false,
         "canRead": true,
-        "canUpdate": true,
-        "canDelete": true
+        "canUpdate": false,
+        "canDelete": false
     },
     {
         "id": 19,
         "userID": 2,
         "moduleName": "Vignettes",
-        "canCreate": true,
-        "canRead": true,
-        "canUpdate": true,
-        "canDelete": true
+        "canCreate": false,
+        "canRead": false,
+        "canUpdate": false,
+        "canDelete": false
     },
     {
         "id": 20,
         "userID": 2,
         "moduleName": "Vouchers",
-        "canCreate": true,
-        "canRead": true,
-        "canUpdate": true,
-        "canDelete": true
+        "canCreate": false,
+        "canRead": false,
+        "canUpdate": false,
+        "canDelete": false
     },
     {
         "id": 21,
         "userID": 3,
         "moduleName": "Employees",
         "canCreate": false,
-        "canRead": true,
+        "canRead": false,
         "canUpdate": false,
         "canDelete": false
     },
@@ -406,13 +366,13 @@ export let privilegesDB: PrivilegeModal[] = [
         "canCreate": true,
         "canRead": true,
         "canUpdate": true,
-        "canDelete": false
+        "canDelete": true
     },
     {
         "id": 23,
         "userID": 3,
         "moduleName": "Vehicles",
-        "canCreate": true,
+        "canCreate": false,
         "canRead": true,
         "canUpdate": false,
         "canDelete": false
@@ -421,18 +381,18 @@ export let privilegesDB: PrivilegeModal[] = [
         "id": 24,
         "userID": 3,
         "moduleName": "Missions",
-        "canCreate": true,
+        "canCreate": false,
         "canRead": true,
         "canUpdate": true,
-        "canDelete": true
+        "canDelete": false
     },
     {
         "id": 25,
         "userID": 3,
         "moduleName": "Tracers",
-        "canCreate": true,
+        "canCreate": false,
         "canRead": true,
-        "canUpdate": true,
+        "canUpdate": false,
         "canDelete": false
     },
     {
@@ -458,7 +418,7 @@ export let privilegesDB: PrivilegeModal[] = [
         "userID": 3,
         "moduleName": "Providers",
         "canCreate": false,
-        "canRead": true,
+        "canRead": false,
         "canUpdate": false,
         "canDelete": false
     },
@@ -493,8 +453,8 @@ export let privilegesDB: PrivilegeModal[] = [
         "id": 32,
         "userID": 4,
         "moduleName": "Drivers",
-        "canCreate": true,
-        "canRead": true,
+        "canCreate": false,
+        "canRead": false,
         "canUpdate": false,
         "canDelete": false
     },
@@ -505,15 +465,15 @@ export let privilegesDB: PrivilegeModal[] = [
         "canCreate": true,
         "canRead": true,
         "canUpdate": true,
-        "canDelete": false
+        "canDelete": true
     },
     {
         "id": 34,
         "userID": 4,
         "moduleName": "Missions",
-        "canCreate": true,
-        "canRead": true,
-        "canUpdate": true,
+        "canCreate": false,
+        "canRead": false,
+        "canUpdate": false,
         "canDelete": false
     },
     {
@@ -521,7 +481,7 @@ export let privilegesDB: PrivilegeModal[] = [
         "userID": 4,
         "moduleName": "Tracers",
         "canCreate": false,
-        "canRead": true,
+        "canRead": false,
         "canUpdate": false,
         "canDelete": false
     },
@@ -529,9 +489,9 @@ export let privilegesDB: PrivilegeModal[] = [
         "id": 36,
         "userID": 4,
         "moduleName": "GroupeVehicles",
-        "canCreate": true,
+        "canCreate": false,
         "canRead": true,
-        "canUpdate": true,
+        "canUpdate": false,
         "canDelete": false
     },
     {
@@ -548,7 +508,7 @@ export let privilegesDB: PrivilegeModal[] = [
         "userID": 4,
         "moduleName": "Providers",
         "canCreate": false,
-        "canRead": false,
+        "canRead": true,
         "canUpdate": false,
         "canDelete": false
     },
@@ -559,14 +519,14 @@ export let privilegesDB: PrivilegeModal[] = [
         "canCreate": true,
         "canRead": true,
         "canUpdate": true,
-        "canDelete": false
+        "canDelete": true
     },
     {
         "id": 40,
         "userID": 4,
         "moduleName": "Vouchers",
         "canCreate": false,
-        "canRead": false,
+        "canRead": true,
         "canUpdate": false,
         "canDelete": false
     },
@@ -575,7 +535,7 @@ export let privilegesDB: PrivilegeModal[] = [
         "userID": 5,
         "moduleName": "Employees",
         "canCreate": false,
-        "canRead": true,
+        "canRead": false,
         "canUpdate": false,
         "canDelete": false
     },
@@ -583,9 +543,9 @@ export let privilegesDB: PrivilegeModal[] = [
         "id": 42,
         "userID": 5,
         "moduleName": "Drivers",
-        "canCreate": false,
-        "canRead": false,
-        "canUpdate": false,
+        "canCreate": true,
+        "canRead": true,
+        "canUpdate": true,
         "canDelete": false
     },
     {
@@ -601,17 +561,17 @@ export let privilegesDB: PrivilegeModal[] = [
         "id": 44,
         "userID": 5,
         "moduleName": "Missions",
-        "canCreate": false,
-        "canRead": false,
-        "canUpdate": false,
-        "canDelete": false
+        "canCreate": true,
+        "canRead": true,
+        "canUpdate": true,
+        "canDelete": true
     },
     {
         "id": 45,
         "userID": 5,
         "moduleName": "Tracers",
         "canCreate": false,
-        "canRead": false,
+        "canRead": true,
         "canUpdate": false,
         "canDelete": false
     },
@@ -619,46 +579,46 @@ export let privilegesDB: PrivilegeModal[] = [
         "id": 46,
         "userID": 5,
         "moduleName": "GroupeVehicles",
-        "canCreate": false,
+        "canCreate": true,
         "canRead": true,
-        "canUpdate": false,
-        "canDelete": false
+        "canUpdate": true,
+        "canDelete": true
     },
     {
         "id": 47,
         "userID": 5,
         "moduleName": "Insurances",
-        "canCreate": false,
+        "canCreate": true,
         "canRead": true,
-        "canUpdate": true,
+        "canUpdate": false,
         "canDelete": false
     },
     {
         "id": 48,
         "userID": 5,
         "moduleName": "Providers",
-        "canCreate": true,
-        "canRead": true,
-        "canUpdate": true,
-        "canDelete": true
+        "canCreate": false,
+        "canRead": false,
+        "canUpdate": false,
+        "canDelete": false
     },
     {
         "id": 49,
         "userID": 5,
         "moduleName": "Vignettes",
         "canCreate": false,
-        "canRead": true,
-        "canUpdate": true,
+        "canRead": false,
+        "canUpdate": false,
         "canDelete": false
     },
     {
         "id": 50,
         "userID": 5,
         "moduleName": "Vouchers",
-        "canCreate": true,
+        "canCreate": false,
         "canRead": true,
-        "canUpdate": true,
-        "canDelete": true
+        "canUpdate": false,
+        "canDelete": false
     },
     {
         "id": 51,
@@ -673,7 +633,7 @@ export let privilegesDB: PrivilegeModal[] = [
         "id": 52,
         "userID": 6,
         "moduleName": "Drivers",
-        "canCreate": false,
+        "canCreate": true,
         "canRead": true,
         "canUpdate": false,
         "canDelete": false
@@ -683,7 +643,7 @@ export let privilegesDB: PrivilegeModal[] = [
         "userID": 6,
         "moduleName": "Vehicles",
         "canCreate": false,
-        "canRead": true,
+        "canRead": false,
         "canUpdate": false,
         "canDelete": false
     },
@@ -691,9 +651,9 @@ export let privilegesDB: PrivilegeModal[] = [
         "id": 54,
         "userID": 6,
         "moduleName": "Missions",
-        "canCreate": true,
+        "canCreate": false,
         "canRead": true,
-        "canUpdate": true,
+        "canUpdate": false,
         "canDelete": false
     },
     {
@@ -701,7 +661,7 @@ export let privilegesDB: PrivilegeModal[] = [
         "userID": 6,
         "moduleName": "Tracers",
         "canCreate": false,
-        "canRead": true,
+        "canRead": false,
         "canUpdate": false,
         "canDelete": false
     },
@@ -710,7 +670,7 @@ export let privilegesDB: PrivilegeModal[] = [
         "userID": 6,
         "moduleName": "GroupeVehicles",
         "canCreate": false,
-        "canRead": false,
+        "canRead": true,
         "canUpdate": false,
         "canDelete": false
     },
@@ -719,7 +679,7 @@ export let privilegesDB: PrivilegeModal[] = [
         "userID": 6,
         "moduleName": "Insurances",
         "canCreate": false,
-        "canRead": false,
+        "canRead": true,
         "canUpdate": false,
         "canDelete": false
     },
@@ -728,8 +688,8 @@ export let privilegesDB: PrivilegeModal[] = [
         "userID": 6,
         "moduleName": "Providers",
         "canCreate": false,
-        "canRead": true,
-        "canUpdate": true,
+        "canRead": false,
+        "canUpdate": false,
         "canDelete": false
     },
     {
@@ -737,7 +697,7 @@ export let privilegesDB: PrivilegeModal[] = [
         "userID": 6,
         "moduleName": "Vignettes",
         "canCreate": false,
-        "canRead": false,
+        "canRead": true,
         "canUpdate": false,
         "canDelete": false
     },
@@ -746,315 +706,439 @@ export let privilegesDB: PrivilegeModal[] = [
         "userID": 6,
         "moduleName": "Vouchers",
         "canCreate": false,
+        "canRead": false,
+        "canUpdate": false,
+        "canDelete": false
+    },
+    {
+        "id": 61,
+        "userID": 8,
+        "moduleName": "Employees",
+        "canCreate": false,
+        "canRead": false,
+        "canUpdate": false,
+        "canDelete": false
+    },
+    {
+        "id": 62,
+        "userID": 8,
+        "moduleName": "Drivers",
+        "canCreate": false,
         "canRead": true,
-        "canUpdate": true,
-        "canDelete": true
-    }
-];
-
-export let tracersDB: TracerModal[] = [];
-
-export let providersDB: ProviderModal[] = [
-    {
-        "id": 2,
-        "fullname": "Provider1",
-        "email": "provider1@gmail.com",
-        "matricule": "21AZ4526",
-        "address": "Monastir",
-        "phone": "12345678"
+        "canUpdate": false,
+        "canDelete": false
     },
     {
-        "id": 3,
-        "fullname": "Provider2",
-        "email": "provider2@gmail.com",
-        "matricule": "22ER1472",
-        "address": "Sousse",
-        "phone": "12345679"
+        "id": 63,
+        "userID": 8,
+        "moduleName": "Vehicles",
+        "canCreate": false,
+        "canRead": true,
+        "canUpdate": false,
+        "canDelete": false
     },
     {
-        "id": 4,
-        "fullname": "Provider3",
-        "email": "provider3@gmail.com",
-        "matricule": "32TY7412",
-        "address": "Sfax",
-        "phone": "12345677"
+        "id": 64,
+        "userID": 8,
+        "moduleName": "Missions",
+        "canCreate": false,
+        "canRead": true,
+        "canUpdate": false,
+        "canDelete": false
     },
     {
-        "id": 5,
-        "fullname": "Provider4",
-        "email": "provider4@gmail.com",
-        "matricule": "74UI1486",
-        "address": "Mahdia",
-        "phone": "12345676"
+        "id": 65,
+        "userID": 8,
+        "moduleName": "Tracers",
+        "canCreate": false,
+        "canRead": false,
+        "canUpdate": false,
+        "canDelete": false
     },
     {
-        "id": 6,
-        "fullname": "Provider5",
-        "email": "provider5@gmail.com",
-        "matricule": "63OP4125",
-        "address": "Tunis",
-        "phone": "12345675"
-    }
-];
-
-export let usersDB: UserModal[] = [
-    {
-        "id": 1,
-        "fullname": "SupAdmin",
-        "roleName": "superAdmin",
-        "isSuperAdmin": true,
-        "email": "MedLawani.jr@gmail.com",
-        "password": "a",
-        "address": "Monastir",
-        "phone": "+216 24635003",
-        "imageUrl": "https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/fleet_app/users/med_li_jr.jpg"
+        "id": 66,
+        "userID": 8,
+        "moduleName": "GroupeVehicles",
+        "canCreate": false,
+        "canRead": true,
+        "canUpdate": false,
+        "canDelete": false
     },
     {
-        "id": 2,
-        "fullname": "AdmEmp",
-        "roleName": "employee",
-        "isSuperAdmin": false,
-        "email": "adminemployee@gmail.com",
-        "password": "a",
-        "address": "Sousse",
-        "phone": "+216 56358459",
-        "imageUrl": "https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/fleet_app/users/adminemp.png"
+        "id": 67,
+        "userID": 8,
+        "moduleName": "Insurances",
+        "canCreate": false,
+        "canRead": false,
+        "canUpdate": false,
+        "canDelete": false
     },
     {
-        "id": 3,
-        "fullname": "AdmDriver",
-        "roleName": "driver",
-        "isSuperAdmin": false,
-        "email": "admdriver@gmail.com",
-        "password": "a",
-        "address": "Mahdia",
-        "phone": "+225 12345678",
-        "imageUrl": "https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/fleet_app/users/dicaprio.jpg"
+        "id": 68,
+        "userID": 8,
+        "moduleName": "Providers",
+        "canCreate": false,
+        "canRead": false,
+        "canUpdate": false,
+        "canDelete": false
     },
     {
-        "id": 4,
-        "fullname": "Emp1",
-        "roleName": "employee",
-        "isSuperAdmin": false,
-        "email": "employee1@gmail.com",
-        "password": "a",
-        "address": "Sfax",
-        "phone": "+225 12345679",
-        "imageUrl": "https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/fleet_app/users/Henry_Cavill.jpg"
-    },    
-    {
-        "id": 5,
-        "fullname": "Emp2",
-        "roleName": "employee",
-        "isSuperAdmin": false,
-        "email": "employee2@gmail.com",
-        "password": "a",
-        "address": "Tunis",
-        "phone": "+216 12345670",
-        "imageUrl": "https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/fleet_app/users/jensen.jpg"
+        "id": 69,
+        "userID": 8,
+        "moduleName": "Vignettes",
+        "canCreate": false,
+        "canRead": false,
+        "canUpdate": false,
+        "canDelete": false
     },
     {
-        "id": 6,
-        "fullname": "Driv1",
-        "roleName": "driver",
-        "isSuperAdmin": false,
-        "email": "driver1@gmail.com",
-        "password": "a",
-        "address": "Kesserine",
-        "phone": "+225 12345677",
-        "imageUrl": "https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/fleet_app/users/Grant_Gustin.jpg"
-    }
-];
-
-export let vehiclesDB: VehicleModal[] = [
-    {
-        "id": 2,
-        "groupeId": 2,
-        "groupeName": "Groupe1",
-        "marque": "Vehicle1",
-        "seatNbr": 5,
-        "datePurchase": "2022-07-01",
-        "dateStartUsage": "2022-07-10",
-        "dateLimiteUsage": "2023-09-08",
-        "imageUrl": "https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/fleet_app/vehicles/vehicle1.jpg"
-    },
-    {
-        "id": 3,
-        "groupeId": 2,
-        "groupeName": "Groupe1",
-        "marque": "Vehicle2",
-        "seatNbr": 3,
-        "datePurchase": "2022-07-05",
-        "dateStartUsage": "2022-07-21",
-        "dateLimiteUsage": "2024-02-20",
-        "imageUrl": "https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/fleet_app/vehicles/vehicle2.jpg"
-    },
-    {
-        "id": 4,
-        "groupeId": 3,
-        "groupeName": "Groupe2",
-        "marque": "Vehicle3",
-        "seatNbr": 5,
-        "datePurchase": "2022-07-17",
-        "dateStartUsage": "2022-07-20",
-        "dateLimiteUsage": "2023-08-04",
-        "imageUrl": "https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/fleet_app/vehicles/vehicle3.jpg"
-    },
-    {
-        "id": 5,
-        "groupeId": 2,
-        "groupeName": "Groupe1",
-        "marque": "Vehicle4",
-        "seatNbr": 3,
-        "datePurchase": "2022-07-05",
-        "dateStartUsage": "2022-08-01",
-        "dateLimiteUsage": "2024-05-01",
-        "imageUrl": "https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/fleet_app/vehicles/vehicle4.jpg"
-    },
-    {
-        "id": 6,
-        "groupeId": 3,
-        "groupeName": "Groupe2",
-        "marque": "Vehicle5",
-        "seatNbr": 3,
-        "datePurchase": "2022-07-03",
-        "dateStartUsage": "2022-09-01",
-        "dateLimiteUsage": "2024-07-12",
-        "imageUrl": "https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/fleet_app/vehicles/vehicle5.png"
-    }
-];
-
-export let vignettesDB: VignetteModal[] = [
-    {
-        "id": 2,
-        "vehicleId": 2,
-        "vehicleMarque": "Vehicle1",
-        "type": "Type1",
-        "price": 123,
-        "dueDate": "2022-12-01"
-    },
-    {
-        "id": 3,
-        "vehicleId": 3,
-        "vehicleMarque": "Vehicle2",
-        "type": "Type2",
-        "price": 963,
-        "dueDate": "2022-12-03"
-    },
-    {
-        "id": 4,
-        "vehicleId": 4,
-        "vehicleMarque": "Vehicle3",
-        "type": "Type3",
-        "price": 147,
-        "dueDate": "2023-01-28"
-    },
-    {
-        "id": 5,
-        "vehicleId": 3,
-        "vehicleMarque": "Vehicle2",
-        "type": "Type1",
-        "price": 965,
-        "dueDate": "2023-02-08"
-    },
-    {
-        "id": 6,
-        "vehicleId": 2,
-        "vehicleMarque": "Vehicle1",
-        "type": "Type3",
-        "price": 951,
-        "dueDate": "2023-12-08"
-    },
-    {
-        "id": 7,
-        "vehicleId": 3,
-        "vehicleMarque": "Vehicle2",
-        "type": "Type2",
-        "price": 123,
-        "dueDate": "2024-01-06"
-    }
-];
-
-export let vouchersDB: VoucherModal[] = [
-    {
-        "id": 2,
-        "vehicleId": 2,
-        "vehicleMarque": "Vehicle1",
-        "totalLiter": 159,
-        "employeeId": 1,
-        "employeeFullname": "SupAdmin",
-        "providerId": 2,
-        "providerFullname": "Provider1",
-        "dateLimiteUsage": "2022-10-29",
-        "price": 14,
-        "dateStartUsage": "2022-07-21"
-    },
-    {
-        "id": 3,
-        "vehicleId": 3,
-        "vehicleMarque": "Vehicle2",
-        "totalLiter": 147,
-        "employeeId": 1,
-        "employeeFullname": "SupAdmin",
-        "providerId": 3,
-        "providerFullname": "Provider2",
-        "dateLimiteUsage": "2022-10-01",
-        "price": 75,
-        "dateStartUsage": "2022-07-19"
-    },
-    {
-        "id": 4,
-        "vehicleId": 3,
-        "vehicleMarque": "Vehicle2",
-        "totalLiter": 96,
-        "employeeId": 1,
-        "employeeFullname": "SupAdmin",
-        "providerId": 4,
-        "providerFullname": "Provider3",
-        "dateLimiteUsage": "2023-04-26",
-        "price": 855,
-        "dateStartUsage": "2022-08-06"
-    },
-    {
-        "id": 5,
-        "vehicleId": 4,
-        "vehicleMarque": "Vehicle3",
-        "totalLiter": 123,
-        "employeeId": 1,
-        "employeeFullname": "SupAdmin",
-        "providerId": 5,
-        "providerFullname": "Provider4",
-        "dateLimiteUsage": "2023-01-14",
-        "price": 789,
-        "dateStartUsage": "2022-07-01"
-    },
-    {
-        "id": 6,
-        "vehicleId": 3,
-        "vehicleMarque": "Vehicle2",
-        "totalLiter": 159,
-        "employeeId": 1,
-        "employeeFullname": "SupAdmin",
-        "providerId": 4,
-        "providerFullname": "Provider3",
-        "dateLimiteUsage": "2023-02-03",
-        "price": 753,
-        "dateStartUsage": "2022-11-09"
-    },
-    {
-        "id": 7,
-        "vehicleId": 2,
-        "vehicleMarque": "Vehicle1",
-        "totalLiter": 852,
-        "employeeId": 1,
-        "employeeFullname": "SupAdmin",
-        "providerId": 6,
-        "providerFullname": "Provider5",
-        "dateLimiteUsage": "2022-11-05",
-        "price": 456,
-        "dateStartUsage": "2022-06-30"
+        "id": 70,
+        "userID": 8,
+        "moduleName": "Vouchers",
+        "canCreate": false,
+        "canRead": false,
+        "canUpdate": false,
+        "canDelete": false
     }
 ]
+
+
+/* PROVIDERS DB */
+export let providersDB: ProviderModal[] =
+    [
+        {
+            "id": 1,
+            "matricule": "12AL7451",
+            "fullname": "Provider1",
+            "email": "provider1@gmail.com",
+            "address": "Monastir",
+            "phone": "56358459"
+        },
+        {
+            "id": 4,
+            "matricule": "74PM963",
+            "fullname": "Provider2",
+            "email": "provider2@gmail.com",
+            "address": "Sousse",
+            "phone": "56358458"
+        },
+        {
+            "id": 6,
+            "matricule": "96TG753",
+            "fullname": "Provider3",
+            "email": "provider3@gmail.com",
+            "address": "Mahdia",
+            "phone": "56358457"
+        },
+        {
+            "id": 7,
+            "matricule": "85NB741",
+            "fullname": "Provider4",
+            "email": "provider4@gmail.com",
+            "address": "Tunis",
+            "phone": "56358456"
+        },
+        {
+            "id": 8,
+            "matricule": "45QS985",
+            "fullname": "Provider5",
+            "email": "provider5@gmail.com",
+            "address": "Djerba",
+            "phone": "56358455"
+        }
+    ]
+
+/* TRACERS DB */
+export let tracersDB: TracerModal[] = []
+
+
+
+/* VEHICLES DB */
+export let vehiclesDB: VehicleModal[] =
+    [
+        {
+            "id": 1,
+            "groupeId": 1,
+            "marque": "Vehicle1",
+            "seatNbr": 4,
+            "datePurchase": "2022-06-20",
+            "dateStartUsage": "2022-06-26",
+            "dateLimiteUsage": "2022-12-01",
+            "imageUrl": "/assets/img/vehicles/vehicle1.jpg",
+            "groupeName": "Groupe1",
+        },
+        {
+            "id": 3,
+            "groupeId": 2,
+            "marque": "Vehicle2",
+            "seatNbr": 5,
+            "datePurchase": "2022-06-20",
+            "dateStartUsage": "2022-06-23",
+            "dateLimiteUsage": "2023-08-30",
+            "imageUrl": "/assets/img/vehicles/vehicle2.jpeg",
+            "groupeName": "Groupe2",
+        },
+        {
+            "id": 4,
+            "groupeId": 3,
+            "marque": "Vehicle3",
+            "seatNbr": 4,
+            "datePurchase": "2022-06-20",
+            "dateStartUsage": "2022-06-22",
+            "dateLimiteUsage": "2024-07-31",
+            "imageUrl": "/assets/img/vehicles/vehicle3.jpg",
+            "groupeName": "Groupe3",
+        },
+        {
+            "id": 6,
+            "groupeId": 1,
+            "marque": "Vehicle4",
+            "seatNbr": 2,
+            "datePurchase": "2022-06-28",
+            "dateStartUsage": "2022-06-24",
+            "dateLimiteUsage": "2023-03-24",
+            "imageUrl": "/assets/img/vehicles/vehicle4.jpg",
+            "groupeName": "Groupe1",
+        },
+        {
+            "id": 7,
+            "groupeId": 1,
+            "marque": "Vehicle5",
+            "seatNbr": 2,
+            "datePurchase": "2022-06-20",
+            "dateStartUsage": "2022-06-23",
+            "dateLimiteUsage": "2024-05-14",
+            "imageUrl": "/assets/img/vehicles/vehicle5.png",
+            "groupeName": "Groupe1",
+        },
+        {
+            "id": 8,
+            "groupeId": 5,
+            "marque": "Vehicle6",
+            "seatNbr": 2,
+            "datePurchase": "2022-06-27",
+            "dateStartUsage": "2022-06-17",
+            "dateLimiteUsage": "2023-10-20",
+            "imageUrl": "/assets/img/vehicles/vehicle6.jpeg",
+            "groupeName": "Groupe5",
+        }
+    ]
+
+
+/* VIGNETTES DB */
+export let vignettesDB: VignetteModal[] =
+    [
+        {
+            "id": 1,
+            "vehicleId": 1,
+            "type": "Type1",
+            "price": 123,
+            "dueDate": "2022-07-07",
+            "vehicleMarque": "Vehicle1",
+        },
+        {
+            "id": 2,
+            "vehicleId": 3,
+            "type": "Type2",
+            "price": 753,
+            "dueDate": "2022-07-09",
+            "vehicleMarque": "Vehicle2",
+        },
+        {
+            "id": 3,
+            "vehicleId": 4,
+            "type": "Type3",
+            "price": 147,
+            "dueDate": "2022-06-23",
+            "vehicleMarque": "Vehicle3",
+        },
+        {
+            "id": 4,
+            "vehicleId": 7,
+            "type": "Type2",
+            "price": 963.25,
+            "dueDate": "2022-10-05",
+            "vehicleMarque": "Vehicle5",
+        },
+        {
+            "id": 5,
+            "vehicleId": 1,
+            "type": "Type2",
+            "price": 12.3,
+            "dueDate": "2022-10-21",
+            "vehicleMarque": "Vehicle1",
+        },
+        {
+            "id": 6,
+            "vehicleId": 3,
+            "type": "Type3",
+            "price": 85.36,
+            "dueDate": "2022-11-18",
+            "vehicleMarque": "Vehicle2",
+        }
+    ]
+
+
+/* VOUCHERS DB */
+export let vouchersDB: VoucherModal[] =
+    [
+        {
+            "id": 1,
+            "employeeId": 3,
+            "vehicleId": 1,
+            "providerId": 1,
+            "price": 123,
+            "totalLiter": 456,
+            "dateStartUsage": "2022-06-29",
+            "dateLimiteUsage": "2022-07-08",
+            "vehicleMarque": "Vehicle1",
+            "employeeFullname": "SuperAdmin",
+            "providerFullname": "Provider1",
+        },
+        {
+            "id": 2,
+            "employeeId": 3,
+            "vehicleId": 3,
+            "providerId": 4,
+            "price": 789,
+            "totalLiter": 147,
+            "dateStartUsage": "2022-06-24",
+            "dateLimiteUsage": "2022-10-26",
+            "vehicleMarque": "Vehicle2",
+            "employeeFullname": "SuperAdmin",
+            "providerFullname": "Provider2",
+        },
+        {
+            "id": 3,
+            "employeeId": 3,
+            "vehicleId": 4,
+            "providerId": 6,
+            "price": 753,
+            "totalLiter": 951,
+            "dateStartUsage": "2022-06-30",
+            "dateLimiteUsage": "2022-12-07",
+            "vehicleMarque": "Vehicle3",
+            "employeeFullname": "SuperAdmin",
+            "providerFullname": "Provider3",
+        },
+        {
+            "id": 4,
+            "employeeId": 3,
+            "vehicleId": 6,
+            "providerId": 7,
+            "price": 147,
+            "totalLiter": 123,
+            "dateStartUsage": "2022-06-27",
+            "dateLimiteUsage": "2022-07-02",
+            "vehicleMarque": "Vehicle4",
+            "employeeFullname": "SuperAdmin",
+            "providerFullname": "Provider4",
+        },
+        {
+            "id": 5,
+            "employeeId": 3,
+            "vehicleId": 4,
+            "providerId": 8,
+            "price": 145,
+            "totalLiter": 963,
+            "dateStartUsage": "2022-09-15",
+            "dateLimiteUsage": "2023-03-22",
+            "vehicleMarque": "Vehicle3",
+            "employeeFullname": "SuperAdmin",
+            "providerFullname": "Provider5",
+        }
+    ]
+
+
+/* USERS DB */
+export let usersDB: UserModal[] =
+
+    [
+        {
+            "id": 1,
+            "fullname": "SuperAdmin",
+            "email": "spadmin@gmail.com",
+            "password": "a",
+            "phone": "56358459",
+            "address": "Monastirr",
+            "imageUrl": "/assets/img/users/med_li_jr.jpg",
+            "roleName": "superAdmin",
+            "isSuperAdmin": true,
+
+        },
+        {
+            "id": 2,
+            "fullname": "AdminEmployee",
+            "email": "admemp@gmail.com",
+            "password": "a",
+            "phone": "56358458",
+            "address": "Soussa",
+            "imageUrl": "/assets/img/users/adminemp.png",
+            "roleName": "employee",
+            "isSuperAdmin": false,
+
+        },
+        {
+            "id": 3,
+            "fullname": "AdminDriver",
+            "email": "admdriver@gmail.com",
+            "password": "a",
+            "phone": "56358457",
+            "address": "Mahdia",
+            "imageUrl": "/assets/img/users/jensen.jpeg",
+            "roleName": "driver",
+            "isSuperAdmin": false,
+
+        },
+        {
+            "id": 4,
+            "fullname": "Employee1",
+            "email": "emp1@gmail.com",
+            "password": "a",
+            "phone": "56358456",
+            "address": "Sfax",
+            "imageUrl": "/assets/img/users/Grant_Gustin.jpg",
+            "roleName": "employee",
+            "isSuperAdmin": false,
+
+        },
+        {
+            "id": 5,
+            "fullname": "Employee2",
+            "email": "emp2@gmail.com",
+            "password": "a",
+            "phone": "56358455",
+            "address": "Tunis",
+            "imageUrl": "/assets/img/users/grimm.jpg",
+            "roleName": "employee",
+            "isSuperAdmin": false,
+
+        },
+        {
+            "id": 6,
+            "fullname": "Driver1",
+            "email": "driver1@gmail.com",
+            "password": "a",
+            "phone": "56358454",
+            "address": "Medenine",
+            "imageUrl": "/assets/img/users/driver1.png",
+            "roleName": "driver",
+            "isSuperAdmin": false,
+
+        },
+        {
+            "id": 8,
+            "fullname": "Driver2",
+            "email": "driver2@gmail.com",
+            "password": "a",
+            "phone": "56358453",
+            "address": "Moknine",
+            "imageUrl": "/assets/img/users/driver2.png",
+            "roleName": "driver",
+            "isSuperAdmin": false,
+
+        }
+    ];
 
 
 export let allSetInterval: any = [];
@@ -1070,6 +1154,8 @@ export let allMarker: any = [];
 (window as any).vignettesDB = vignettesDB;
 (window as any).vouchersDB = vouchersDB;
 (window as any).usersDB = usersDB;
-// (window as any).allMarker = function() {
-//     return allMarker
-// };
+(window as any).allMarker = function() {
+    return allMarker
+};
+
+
