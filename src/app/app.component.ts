@@ -1,16 +1,19 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { filter, map } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  {
-  title = 'fleets';
+export class AppComponent {
 
   getScreenWidth: any;
   getScreenHeight: any;
-  
+
   arrayScriptsJS: string[] = [
     "assets/vendor/libs/jquery/jquery.js",
     "assets/vendor/libs/popper/popper.js",
@@ -22,18 +25,42 @@ export class AppComponent  {
     "https://buttons.github.io/buttons.js",
   ];
 
-  constructor() {
+  constructor(
+    private router: Router,
+    private titleService: Title) {
     this.loadScript();
     this.getScreenWidth = window.innerWidth;
     this.getScreenHeight = window.innerHeight;
   }
 
+  ngOnInit() {
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        map(() => {
+          let route: ActivatedRoute = this.router.routerState.root;
+          let routeTitle = '';
+          while (route!.firstChild) {
+            route = route.firstChild;
+          }
+          if (route.snapshot.data['title']) {
+            routeTitle = route!.snapshot.data['title'];
+          }
+          return routeTitle;
+        })
+      )
+      .subscribe((title: string) => {
+        if (title) {
+          this.titleService.setTitle(`Fleet App - ${title}`);
+        }
+      });
+  }
 
-@HostListener('window:resize', ['$event'])
-onWindowResize() {
-  this.getScreenWidth = window.innerWidth;
-  this.getScreenHeight = window.innerHeight;
-}
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    this.getScreenWidth = window.innerWidth;
+    this.getScreenHeight = window.innerHeight;
+  }
 
   public loadScript() {
 
@@ -46,5 +73,5 @@ onWindowResize() {
       document.getElementsByTagName('head')[0].appendChild(node);
     }
   }
-  
+
 }

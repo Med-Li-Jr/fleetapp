@@ -65,25 +65,26 @@ const routes: Routes = [
     path: "", redirectTo: "/login", pathMatch: "full"
   },
   {
-    path: "login", component: LoginComponent
+    data: { title: "Login" }, path: "login", component: LoginComponent, 
   },
   {
     path: "reset", component: DataresetComponent
   },
   {
-    path: "notallowed", component: NotallowedComponent
+    data: { title: "notallowed" }, path: "notallowed", component: NotallowedComponent
   },
   {
     path: "", component: MainlayoutComponent,
     canActivate: [AuthGuard],
     children: [
       {
-        path: "profil", component: ProfilComponent,
+        data: { title: "Profil" }, path: "profil", component: ProfilComponent,
       },
       {
         path: "users", component: UsersComponent,
         canActivate: [SuperadminGuard],
         data: {
+          title: "Users",
           moduleName: "users"
         }
       },
@@ -91,6 +92,7 @@ const routes: Routes = [
         path: "users/add", component: CreateUserComponent,
         canActivate: [SuperadminGuard],
         data: {
+          title: "Users",
           moduleName: "users"
         }
       },
@@ -98,6 +100,7 @@ const routes: Routes = [
         path: "users/:id", component: DetailUserComponent,
         canActivate: [SuperadminGuard],
         data: {
+          title: "Users",
           moduleName: "users"
         }
       },
@@ -105,6 +108,7 @@ const routes: Routes = [
         path: "users/:id/update", component: UpdateUserComponent,
         canActivate: [SuperadminGuard],
         data: {
+          title: "Users",
           moduleName: "users"
         }
       },
@@ -112,6 +116,7 @@ const routes: Routes = [
         path: "drivers", component: DriversComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Drivers",
           moduleName: "drivers"
         }
       },
@@ -119,6 +124,7 @@ const routes: Routes = [
         path: "drivers/add", component: CreateDriverComponent,
         canActivate: [CreateGuard],
         data: {
+          title: "Drivers",
           moduleName: "drivers"
         }
       },
@@ -126,6 +132,7 @@ const routes: Routes = [
         path: "drivers/:id", component: DetailDriverComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Drivers",
           moduleName: "drivers"
         }
       },
@@ -133,6 +140,7 @@ const routes: Routes = [
         path: "drivers/:id/update", component: UpdateDriverComponent,
         canActivate: [UpdateGuard],
         data: {
+          title: "Drivers",
           moduleName: "drivers"
         }
       },
@@ -140,6 +148,7 @@ const routes: Routes = [
         path: "employees", component: EmployeesComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Employees",
           moduleName: "employees"
         }
       },
@@ -147,6 +156,7 @@ const routes: Routes = [
         path: "employees/add", component: CreateEmployeeComponent,
         canActivate: [CreateGuard],
         data: {
+          title: "Employees",
           moduleName: "employees"
         }
       },
@@ -154,6 +164,7 @@ const routes: Routes = [
         path: "employees/:id", component: DetailEmployeeComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Employees",
           moduleName: "employees"
         }
       },
@@ -161,6 +172,7 @@ const routes: Routes = [
         path: "employees/:id/update", component: UpdateEmployeeComponent,
         canActivate: [UpdateGuard],
         data: {
+          title: "Employees",
           moduleName: "employees"
         }
       },
@@ -168,6 +180,7 @@ const routes: Routes = [
         path: "groupevehicles", component: GroupesComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Groupevehicles",
           moduleName: "groupevehicles"
         }
       },
@@ -175,6 +188,7 @@ const routes: Routes = [
         path: "groupevehicles/add", component: CreateGroupeComponent,
         canActivate: [CreateGuard],
         data: {
+          title: "Groupevehicles",
           moduleName: "groupevehicles"
         }
       },
@@ -182,6 +196,7 @@ const routes: Routes = [
         path: "groupevehicles/:id", component: DetailGroupeComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Groupevehicles",
           moduleName: "groupevehicles"
         }
       },
@@ -189,6 +204,7 @@ const routes: Routes = [
         path: "groupevehicles/:id/update", component: UpdateGroupeComponent,
         canActivate: [UpdateGuard],
         data: {
+          title: "Groupevehicles",
           moduleName: "groupevehicles"
         }
       },
@@ -196,6 +212,7 @@ const routes: Routes = [
         path: "vehicles", component: VehiclesComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Vehicles",
           moduleName: "vehicles"
         }
       },
@@ -203,6 +220,7 @@ const routes: Routes = [
         path: "vehicles/add", component: CreateVehicleComponent,
         canActivate: [CreateGuard],
         data: {
+          title: "Vehicles",
           moduleName: "vehicles"
         }
       },
@@ -210,6 +228,7 @@ const routes: Routes = [
         path: "vehicles/:id", component: DetailVehicleComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Vehicles",
           moduleName: "vehicles"
         }
       },
@@ -217,6 +236,7 @@ const routes: Routes = [
         path: "vehicles/:id/update", component: UpdateVehicleComponent,
         canActivate: [UpdateGuard],
         data: {
+          title: "Vehicles",
           moduleName: "vehicles"
         }
       },
@@ -224,6 +244,7 @@ const routes: Routes = [
         path: "insurances", component: InsurancesComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Insurances",
           moduleName: "insurances"
         }
       },
@@ -231,6 +252,7 @@ const routes: Routes = [
         path: "insurances/add", component: CreateInsuranceComponent,
         canActivate: [CreateGuard],
         data: {
+          title: "Insurances",
           moduleName: "insurances"
         }
       },
@@ -238,6 +260,7 @@ const routes: Routes = [
         path: "insurances/:id", component: DetailInsuranceComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Insurances",
           moduleName: "insurances"
         }
       },
@@ -245,6 +268,7 @@ const routes: Routes = [
         path: "insurances/:id/update", component: UpdateInsuranceComponent,
         canActivate: [UpdateGuard],
         data: {
+          title: "Insurances",
           moduleName: "insurances"
         }
       },
@@ -252,6 +276,7 @@ const routes: Routes = [
         path: "missions", component: MissionsComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Missions",
           moduleName: "missions"
         }
       },
@@ -259,6 +284,7 @@ const routes: Routes = [
         path: "missions/add", component: CreateMissionComponent,
         canActivate: [CreateGuard],
         data: {
+          title: "Missions",
           moduleName: "missions"
         }
       },
@@ -266,6 +292,7 @@ const routes: Routes = [
         path: "missions/:id", component: DetailMissionComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Missions",
           moduleName: "missions"
         }
       },
@@ -273,6 +300,7 @@ const routes: Routes = [
         path: "missions/:id/update", component: UpdateMissionComponent,
         canActivate: [UpdateGuard],
         data: {
+          title: "Missions",
           moduleName: "missions"
         }
       },
@@ -280,6 +308,7 @@ const routes: Routes = [
         path: "providers", component: ProvidersComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Providers",
           moduleName: "providers"
         }
       },
@@ -287,6 +316,7 @@ const routes: Routes = [
         path: "providers/add", component: CreateProviderComponent,
         canActivate: [CreateGuard],
         data: {
+          title: "Providers",
           moduleName: "providers"
         }
       },
@@ -294,6 +324,7 @@ const routes: Routes = [
         path: "providers/:id", component: DetailProviderComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Providers",
           moduleName: "providers"
         }
       },
@@ -301,6 +332,7 @@ const routes: Routes = [
         path: "providers/:id/update", component: UpdateProviderComponent,
         canActivate: [UpdateGuard],
         data: {
+          title: "Providers",
           moduleName: "providers"
         }
       },
@@ -308,6 +340,7 @@ const routes: Routes = [
         path: "tracers", component: TracersComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Tracers",
           moduleName: "tracers"
         }
       },
@@ -315,6 +348,7 @@ const routes: Routes = [
         path: "vignettes", component: VignettesComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Vignettes",
           moduleName: "vignettes"
         }
       },
@@ -322,6 +356,7 @@ const routes: Routes = [
         path: "vignettes/add", component: CreateVignetteComponent,
         canActivate: [CreateGuard],
         data: {
+          title: "Vignettes",
           moduleName: "vignettes"
         }
       },
@@ -329,6 +364,7 @@ const routes: Routes = [
         path: "vignettes/:id", component: DetailVignetteComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Vignettes",
           moduleName: "vignettes"
         }
       },
@@ -336,6 +372,7 @@ const routes: Routes = [
         path: "vignettes/:id/update", component: UpdateVignetteComponent,
         canActivate: [UpdateGuard],
         data: {
+          title: "Vignettes",
           moduleName: "vignettes"
         }
       },
@@ -343,6 +380,7 @@ const routes: Routes = [
         path: "vouchers", component: VouchersComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Vouchers",
           moduleName: "vouchers"
         }
       },
@@ -350,6 +388,7 @@ const routes: Routes = [
         path: "vouchers/add", component: CreateVoucherComponent,
         canActivate: [CreateGuard],
         data: {
+          title: "Vouchers",
           moduleName: "vouchers"
         }
       },
@@ -357,6 +396,7 @@ const routes: Routes = [
         path: "vouchers/:id", component: DetailVoucherComponent,
         canActivate: [ReadGuard],
         data: {
+          title: "Vouchers",
           moduleName: "vouchers"
         }
       },
@@ -364,6 +404,7 @@ const routes: Routes = [
         path: "vouchers/:id/update", component: UpdateVoucherComponent,
         canActivate: [UpdateGuard],
         data: {
+          title: "Vouchers",
           moduleName: "vouchers"
         }
       },
