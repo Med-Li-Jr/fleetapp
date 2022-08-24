@@ -807,7 +807,7 @@ export let usersDB: UserModal[] = [
         "password": "a",
         "address": "Monastir",
         "phone": "12345676",
-        "imageUrl": "https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/fleet_app/users/med_li_jr.jpg"
+        "imageUrl": "https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/fleet_app/users/spadmin.png"
     },
     {
         "id": 2,
