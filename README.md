@@ -16,7 +16,7 @@ The second version named **`FleetApp`** was developed with :
 
 ## Interfaces App
 
-Here is the link to the demo: ## [Fleet App website](http://www.fleetapp.ml)
+Here is the link to the demo: [Fleet App website](http://www.fleetapp.ml)
 
 <p>
 <img src="https://raw.githubusercontent.com/Med-Li-Jr/images_demo/main/portfolio/licence2.png" width="49%">
