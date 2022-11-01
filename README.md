@@ -17,7 +17,7 @@ The second version named **`FleetApp`** was developed with :
 ## Interfaces App
 
 Here is the link to the demo:
-<a href="fleetapp.ml" target="_blank">Fleet App website</a>
+<a href="http://www.fleetapp.ml" target="_blank">Fleet App website</a>
 
 
 <p>
